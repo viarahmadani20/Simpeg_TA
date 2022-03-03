@@ -8,6 +8,8 @@ use App\Http\Controllers\KeluargaController;
 use App\Http\Controllers\NegaraController;
 use App\Http\Controllers\PegawaiController;
 use App\Http\Controllers\PengalamanController;
+use App\Http\Controllers\JabatanController;
+use App\Http\Controllers\LoginController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,10 +22,13 @@ use App\Http\Controllers\PengalamanController;
 */
 
 Route::get('/', function () {
-    return view('home');
+    return view('pegawai/tampil');
 });
 
-Route::get('pegawai', [PegawaiController::class, 'index'])->name('pegawai');
+Route::get('login', [LoginController::class, 'login'])->name('login');
+Route::get('registrasi', [LoginController::class, 'registrasi'])->name('registrasi');
+
+Route::get('pegawai/index', [PegawaiController::class, 'index'])->name('pegawai/index');
 Route::get('pegawai/add', [PegawaiController::class, 'add'])->name('pegawai/add');
 
 
@@ -46,4 +51,4 @@ Route::get('negara/add', [NegaraController::class, 'add'])->name('negara/add');
 Route::get('pengalaman', [PengalamanController::class, 'index'])->name('pengalaman');
 Route::get('pengalaman/add', [PengalamanController::class, 'add'])->name('pengalaman/add');
 
-
+Route::get('jabatan', [JabatanController::class, 'index'])->name('jabatan');
