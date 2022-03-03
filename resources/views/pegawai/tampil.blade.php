@@ -22,11 +22,11 @@ active
           <div class="widget-small primary coloured-icon"><i class="icon fa fa-users fa-3x"></i>
             <div class="info">
               <h4>Users</h4>
-              <p><b>5</b></p>
+              <p><b>1</b></p>
             </div>
           </div>
         </div>
-        <div class="col-md-6 col-lg-3"><a href="{{Route('pegawai/add')}}">
+        <div class="col-md-6 col-lg-3"><a href="#">
           <div class="widget-small info coloured-icon"><i class="icon fa fa-edit fa-3x"></i>
             <div class="info"></a>
               <h4>Tambah Pegawai</h4>
@@ -40,32 +40,7 @@ active
             </div>
           </div>
         </div>
-        <div class="col-md-6 col-lg-3"><a href="#">
-          <div class="widget-small danger coloured-icon"><i class="icon fa fa-download fa-3x"></i>
-            <div class="info"></a>
-              <h4>Report Pegawai</h4>
-            </div>
-          </div>
-        </div>
       </div>
-      <div class="row">
-        <div class="col-md-6">
-          <div class="tile">
-          <h3 class="tile-title">Pegawai Berdasarkan Status Pernikahan</h3>
-            <div class="embed-responsive embed-responsive-16by9">
-              <canvas class="embed-responsive-item" id="barChartDemo"></canvas>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="tile">
-            <h3 class="tile-title">Pegawai Berdasarkan Jenis Kelamin</h3>
-            <div class="embed-responsive embed-responsive-16by9">
-              <canvas class="embed-responsive-item" id="pieChartDemo"></canvas>
-            </div>
-          </div>
-        </div>
-      </div>
-     
+
     </main>
 @endsection

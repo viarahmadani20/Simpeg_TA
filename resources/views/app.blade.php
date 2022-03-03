@@ -24,7 +24,7 @@
   </head>
   <body class="app sidebar-mini rtl">
     <!-- Navbar-->
-    <header class="app-header"><a class="app-header__logo" href="index.html">Simpeg</a>
+    <header class="app-header"><a class="app-header__logo" href="index.html">Kegegawaian  SMP Negeri 2 Cirebon</a>
       <!-- Sidebar toggle button--><a class="app-sidebar__toggle" href="#" data-toggle="sidebar" aria-label="Hide Sidebar"></a>
       <!-- Navbar Right Menu-->
       <ul class="app-nav">
@@ -49,36 +49,37 @@
     <!-- Sidebar menu-->
     <div class="app-sidebar__overlay" data-toggle="sidebar"></div>
     <aside class="app-sidebar">
-      <div class="app-sidebar__user"><img class="app-sidebar__user-avatar" src="{{asset('image/jum.jpg')}}" alt="User Image">
+      <div class="app-sidebar__user"><img class="app-sidebar__user-avatar" src="#" alt="User Image">
         <div>
           <p class="app-sidebar__user-name">Kepegawaian</p>
-          <p class="app-sidebar__user-designation">Frontend Developer</p>
         </div>
       </div>
       <ul class="app-menu">
         <li><a class="app-menu__item @yield('dashboard')" href="/"><i class="app-menu__icon fa fa-dashboard"></i><span class="app-menu__label">Dashboard</span></a></li>
         <li class="treeview"><a class="app-menu__item @yield('master')" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-edit"></i><span class="app-menu__label">Tabel Master</span><i class="treeview-indicator fa fa-angle-right"></i></a>
           <ul class="treeview-menu">
-            <li><a class="treeview-item" href="#"><i class="icon fa fa-circle-o"></i> Agama</a></li>
+            <li><a class="treeview-item" href="{{route('agama')}}"><i class="icon fa fa-circle-o"></i> Agama</a></li>
             <li><a class="treeview-item" href="#"><i class="icon fa fa-circle-o"></i> Kewarganegaraan</a></li>
-            <li><a class="treeview-item" href="#"><i class="icon fa fa-circle-o"></i> Golongan Darah</a></li>
-            <li><a class="treeview-item" href="#"><i class="icon fa fa-circle-o"></i> Keluarga</a></li>
+            <li><a class="treeview-item" href="{{route('darah')}}"><i class="icon fa fa-circle-o"></i> Golongan Darah</a></li>
+            <li><a class="treeview-item" href="{{route('keluarga')}}"><i class="icon fa fa-circle-o"></i> Keluarga</a></li>
+            <li><a class="treeview-item" href="{{route('jabatan')}}"><i class="icon fa fa-circle-o"></i> Jabatan</a></li>
+
           </ul>
         </li>
         <li class="treeview"><a class="app-menu__item @yield('pegawai')" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-laptop"></i><span class="app-menu__label">Pegawai</span><i class="treeview-indicator fa fa-angle-right"></i></a>
           <ul class="treeview-menu">
-            <li><a class="treeview-item" href="#"><i class="icon fa fa-circle-o"></i> Data Pegawai</a></li>
+            <li><a class="treeview-item" href="{{route('pegawai/index')}}"><i class="icon fa fa-circle-o"></i> Data Pegawai</a></li>
             <li><a class="treeview-item" href="#" target="" rel="noopener"><i class="icon fa fa-circle-o"></i> Tambah Pegawai</a></li>
             <!-- <li><a class="treeview-item" href="ui-cards.html"><i class="icon fa fa-circle-o"></i> Cards</a></li>
             <li><a class="treeview-item" href="widgets.html"><i class="icon fa fa-circle-o"></i> Widgets</a></li> -->
           </ul>
         </li>
-        <li><a class="app-menu__item @yield('chart')" href="#"><i class="app-menu__icon fa fa-pie-chart"></i><span class="app-menu__label">Charts</span></a></li>
+        {{-- <li><a class="app-menu__item @yield('chart')" href="#"><i class="app-menu__icon fa fa-pie-chart"></i><span class="app-menu__label">Charts</span></a></li> --}}
 
         <!-- <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-th-list"></i><span class="app-menu__label">Data Referensi</span><i class="treeview-indicator fa fa-angle-right"></i></a> -->
           <ul class="treeview-menu">
-            <li><a class="treeview-item" href="#"><i class="icon fa fa-circle-o"></i> Keluarga</a></li>
-            <li><a class="treeview-item" href="#"><i class="icon fa fa-circle-o"></i> Pendidikan</a></li>
+            <li><a class="treeview-item" href="{{route('keluarga')}}"><i class="icon fa fa-circle-o"></i> Keluarga</a></li>
+            <li><a class="treeview-item" href="pendidikan"><i class="icon fa fa-circle-o"></i> Pendidikan</a></li>
           </ul>
         </li>
         <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-file-text"></i><span class="app-menu__label">Rekap Data</span><i class="treeview-indicator fa fa-angle-right"></i></a>
