@@ -10,6 +10,9 @@ use App\Http\Controllers\PegawaiController;
 use App\Http\Controllers\PengalamanController;
 use App\Http\Controllers\JabatanController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\AdminController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -27,6 +30,10 @@ Route::get('/', function () {
 
 Route::get('login', [LoginController::class, 'login'])->name('login');
 Route::get('registrasi', [LoginController::class, 'registrasi'])->name('registrasi');
+Route::post('registrasi_simpan', [LoginController::class, 'registrasi_simpan'])->name('registrasi_simpan');
+
+Route::get('admin_index', [UserController::class, 'admin_index'])->name('admin_index');
+Route::get('admin_add', [UserController::class, 'admin_add'])->name('admin_add');
 
 Route::get('pegawai/index', [PegawaiController::class, 'index'])->name('pegawai/index');
 Route::get('pegawai/add', [PegawaiController::class, 'add'])->name('pegawai/add');
