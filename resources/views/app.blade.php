@@ -24,7 +24,7 @@
   </head>
   <body class="app sidebar-mini rtl">
     <!-- Navbar-->
-    <header class="app-header"><a class="app-header__logo" href="index.html">Kegegawaian  SMP Negeri 2 Cirebon</a>
+    <header class="app-header"><a class="app-header__logo" href="index.html">Kepegawaian </a>
       <!-- Sidebar toggle button--><a class="app-sidebar__toggle" href="#" data-toggle="sidebar" aria-label="Hide Sidebar"></a>
       <!-- Navbar Right Menu-->
       <ul class="app-nav">
@@ -69,9 +69,9 @@
         <li class="treeview"><a class="app-menu__item @yield('pegawai')" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-laptop"></i><span class="app-menu__label">Pegawai</span><i class="treeview-indicator fa fa-angle-right"></i></a>
           <ul class="treeview-menu">
             <li><a class="treeview-item" href="{{route('pegawai/index')}}"><i class="icon fa fa-circle-o"></i> Data Pegawai</a></li>
-            <li><a class="treeview-item" href="#" target="" rel="noopener"><i class="icon fa fa-circle-o"></i> Tambah Pegawai</a></li>
-            <!-- <li><a class="treeview-item" href="ui-cards.html"><i class="icon fa fa-circle-o"></i> Cards</a></li>
-            <li><a class="treeview-item" href="widgets.html"><i class="icon fa fa-circle-o"></i> Widgets</a></li> -->
+            {{-- <li><a class="treeview-item" href="#" target="" rel="noopener"><i class="icon fa fa-circle-o"></i> Tambah Pegawai</a></li>
+            <!-- <li><a class="treeview-item" href="ui-cards.html"><i class="icon fa fa-circle-o"></i> Cards</a></li> --}}
+            {{-- <li><a class="treeview-item" href="widgets.html"><i class="icon fa fa-circle-o"></i> Widgets</a></li> --> --}}
           </ul>
         </li>
         {{-- <li><a class="app-menu__item @yield('chart')" href="#"><i class="app-menu__icon fa fa-pie-chart"></i><span class="app-menu__label">Charts</span></a></li> --}}
@@ -87,7 +87,9 @@
             <li><a class="treeview-item" href="#"><i class="icon fa fa-circle-o"></i> Pegawai</a></li>
           </ul>
         </li>
-      </ul>
+        <li><a class="app-menu__item @yield('admin')" href="{{route('admin_index')}}"><i class="app-menu__icon fa fa-dashboard"></i><span class="app-menu__label">User</span></a></li>
+        <li><a class="app-menu__item @yield('admin')" href="{{route('login')}}"><i class="left__icon "></i><span class="fa fa-sign-in fa-lg fa-fw">logout</span></a></li>
+    </ul>
     </aside>
     @yield('content')
     <!-- Essential javascripts for application to work-->
