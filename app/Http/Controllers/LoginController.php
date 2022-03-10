@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-// use Illuminate\Http\Request;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
@@ -15,37 +15,39 @@ class LoginController extends Controller
         return view('auth.registrasi');
      }
 
-    //  public function login(Request $request){
+     public function registrasi_simpan (Request $request){
 
-    // $credentials = [
-    //     "email" => $request->email,
-    //     "password" => $request->password
-    //     ];
+    $credentials = [
+        "name" => $request->name,
+        "email" => $request->email,
+        "password" => $request->password,
+        "confirm_password" => $request->confirm_password
+        ];
 
-    //     if (Auth::attempt($credentials)) {
+        if (Auth::attempt($credentials)) {
 
-    //         $request->session()->regenerate();
-
-
-    //         return redirect()->intended('dashboard');
-
-    //     }
+            $request->session()->regenerate();
 
 
+            return redirect()->intended('pegawai.tampil');
 
-    //     return back()->withErrors([
-    //         'email' => 'The provided credentials do not match our records.',
-    //     ]);
-    //  }
+        }
 
-    //  public function logout(Request $request){
-    //      Auth::logout();
 
-    //      $request->session()->invalidate();
-    //      $request->session()->regenerateToken();
 
-    //      return redirect('/');
-    //  }
+        return back()->withErrors([
+            'email' => 'The provided credentials do not match our records.',
+        ]);
+     }
+
+     public function logout(Request $request){
+         Auth::logout();
+
+         $request->session()->invalidate();
+         $request->session()->regenerateToken();
+
+         return redirect('/');
+     }
 
 
 }
