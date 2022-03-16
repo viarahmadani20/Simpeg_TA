@@ -41,7 +41,7 @@
                   <input type="checkbox"><span class="label-text">Stay Signed in</span>
                 </label>
               </div>
-              <p class="semibold-text mb-2"><a href="{{route('registrasi_simpan')}}">Register</a></p>
+              <p class="semibold-text mb-2"><a href="{{route('registrasi')}}">Register</a></p>
             </div>
           </div>
           <div class="form-group btn-container">

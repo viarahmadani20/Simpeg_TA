@@ -1,5 +1,5 @@
 @section('title')
-Master Golongan Darah
+Master Golongan
 @endsection
 @section('master')
 active
@@ -9,13 +9,13 @@ active
     <main class="app-content">
       <div class="app-title">
         <div class="div">
-          <h1><i class="fa fa-laptop"></i> Master Golongan Darah</h1>
+          <h1><i class="fa fa-laptop"></i> Master Golongan </h1>
           <!-- <p>Bootstrap Components</p> -->
         </div>
         <ul class="app-breadcrumb breadcrumb">
           <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
           <li class="breadcrumb-item">Tabel Master</li>
-          <li class="breadcrumb-item"><a href="#">Golongan Darah</a></li>
+          <li class="breadcrumb-item"><a href="#">Golongan </a></li>
         </ul>
       </div>
       <!-- Buttons-->
@@ -24,23 +24,23 @@ active
           <div class="row">
             <div class="col-lg-12">
               <!-- <h2 class="mb-3 line-head" id="buttons">Data Pegawai</h2> -->
-              <div class="form-group col-md 8">              
+              <div class="form-group col-md 8">
               <a href="{{route('darah/add')}}"
-              class="btn btn-primary"><span class="fa fa-plus"> Tambah Golongan Darah</span></a>
+              class="btn btn-primary"><span class="fa fa-plus"> Tambah Golongan </span></a>
               </div>
                 <table class="table table-hover">
                   <thead>
                     <tr>
                       <th>No</th>
-                      <th>Golongan Darah</th>                      
-                      <th>Operasi</th>                      
+                      <th>Golongan</th>
+                      <th>Operasi</th>
                     </tr>
                   </thead>
                   <tbody>
-                
+
                     <tr>
                       <td>1</td>
-                      <td>AB</td>                     
+                      <td>1</td>
                       <td>
                         <a href=""
                         class="btn btn-info"><span class="fa fa-edit (alias)"> Edit</span></a>
@@ -48,23 +48,23 @@ active
                       </td>
                       <td>
                         <form action="#" method="post">
-                          
+
                         {{method_field('DELETE')}}
                         <button class="btn btn-danger" type="submit" ><span class="fa fa-trash"> Hapus</span></button>
                         </form>
                       </td>
-                      
-                    </tr>
-                    
-                  </tbody>
-                </table>           
-          
 
-            </div>            
+                    </tr>
+
+                  </tbody>
+                </table>
+
+
+            </div>
           </div>
         </div>
-        <div class="row">      
-          
+        <div class="row">
+
         </div>
       </div>
     </main>

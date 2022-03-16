@@ -29,7 +29,7 @@ active
         <div class="col-md-6 col-lg-3"><a href="#">
           <div class="widget-small info coloured-icon"><i class="icon fa fa-edit fa-3x"></i>
             <div class="info"></a>
-              <h4>Tambah Pegawai</h4>
+              <h4>Data Admin</h4>
             </div>
           </div>
         </div>
@@ -40,6 +40,13 @@ active
             </div>
           </div>
         </div>
+        <div class="col-md-6 col-lg-3"><a href="#">
+            <div class="widget-small warning coloured-icon"><i class="icon fa fa-files-o fa-3x"></i>
+              <div class="info"></a>
+                <h4>Data Dosen</h4>
+              </div>
+            </div>
+          </div>
       </div>
 
     </main>

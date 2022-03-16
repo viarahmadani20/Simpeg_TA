@@ -36,28 +36,20 @@ active
                       <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="operasi: activate to sort column ascending" style="width: 91.0625px;" >Operasi</th>
                     </tr>
                   </thead>
+                  @foreach ( $daftar_agama as $no_agama =>$agama )
                   <tbody>
-                      {{-- @foreach ($daftar_agama as $no_agama)
-
-
-                      @endforeach --}}
                       <tr>
-                      <td>1</td>
-                      <td>Islam</td>
-                      <td>
-                        <a href="#"
-                        class="btn btn-info"><span class="fa fa-edit (alias)"> Edit</span></a>
-                      </td>
-                      <td>
-                        <form action="#" method="post">
-
-                        {{method_field('DELETE')}}
+                      <td class="sorting_1" >{{$no_agama+1}}</td>
+                      <td>{{$agama->nama_agama}}</td>
+                      <td><a href="#"class="btn btn-info"><span class="fa fa-edit (alias)"> Edit</span></a></td>
+                      <td><form action="agama/hapus/{{$agama->id}}" >
                         <button class="btn btn-danger" type="submit" ><span class="fa fa-trash"> Hapus</span></button>
                       </td>
                       </form>
                     </tr>
 
                   </tbody>
+                  @endforeach
                 </table>
             </div>
           </div>

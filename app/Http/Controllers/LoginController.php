@@ -15,30 +15,30 @@ class LoginController extends Controller
         return view('auth.registrasi');
      }
 
-     public function registrasi_simpan (Request $request){
+    //  public function registrasi_simpan (Request $request){
 
-    $credentials = [
-        "name" => $request->name,
-        "email" => $request->email,
-        "password" => $request->password,
-        "confirm_password" => $request->confirm_password
-        ];
+    // $credentials = [
+    //     "name" => $request->name,
+    //     "email" => $request->email,
+    //     "password" => $request->password,
+    //     "confirm_password" => $request->confirm_password
+    //     ];
 
-        if (Auth::attempt($credentials)) {
+    //     if (Auth::attempt($credentials)) {
 
-            $request->session()->regenerate();
-
-
-            return redirect()->intended('pegawai.tampil');
-
-        }
+    //         $request->session()->regenerate();
 
 
+    //         return redirect()->intended('dasboard');
 
-        return back()->withErrors([
-            'email' => 'The provided credentials do not match our records.',
-        ]);
-     }
+    //     }
+
+
+
+    //     return back()->withErrors([
+    //         'email' => 'The provided credentials do not match our records.',
+    //     ]);
+    //  }
 
      public function logout(Request $request){
          Auth::logout();

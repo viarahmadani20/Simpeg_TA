@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Pendidikan;
 
 class PendidikanController extends Controller
 {
@@ -12,5 +13,11 @@ class PendidikanController extends Controller
 
     public function add(){
         return view ('pendidikan.add');
+    }
+
+    public function simpan_pendidikan(Request $request){
+        $pendidikan = Pendidikan::create([
+            'nama'
+        ]);
     }
 }

@@ -19,7 +19,7 @@
         <h1>Kepegawaian</h1>
       </div>
       <div class="login-box register">
-        <form class="login-form" method="POST" action="{{ route('registrasi_simpan')}}">
+        <form class="login-form" method="POST" action="{{ route('registrasi')}}">
         {{ csrf_field() }}
           <h3 class="login-head"><i class="fa fa-lg fa-fw fa-user"></i>REGISTER</h3>
           <div class="form-group">

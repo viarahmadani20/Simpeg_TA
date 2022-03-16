@@ -25,42 +25,38 @@ active
             <div class="col-lg-12">
               <!-- <h2 class="mb-3 line-head" id="buttons">Data Pegawai</h2> -->
               <div class="form-group col-md 8">
-              <a href="#"
+              <a href="{{route('jabatan/add')}}"
               class="btn btn-primary"><span class="fa fa-plus">Tambah Jabatan</span></a>
               </div>
                 <table class="table table-hover">
                   <thead>
-                    <tr>
-                      <th>No</th>
-                      <th>Nama</th>
-                      <th>Jabatan</th>
+                    <tr role="row">
+                        <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="No: activate to sort column ascending" style="width: 91.0625px;" >No</th>
+                        <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="nama_agama: activate to sort column ascending" style="width: 91.0625px;" >Nama</th>
+                        <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="nama_agama: activate to sort column ascending" style="width: 91.0625px;" >Jabatan</th>
+                        <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="operasi: activate to sort column ascending" style="width: 91.0625px;" >Operasi</th>
                     </tr>
                   </thead>
+                  @foreach ( $daftar_jabatan as $no_jabatan =>$jabatan )
+
                   <tbody>
-
                     <tr>
-                      <td>1</td>
-                      <td>Vira</td>
-                      <td>Kepala Sekolah</td>
-                      <div class="col-md-8">
+                      <td class="sorting_1">{{$no_jabatan+1}}</td>
+                      <td>{{$jabatan->nama}}</td>
+                      <td>{{$jabatan->nama_jabatan}}</td>
+                      {{-- <div class="col-md-8">
                         <input class="form-control col-md-8" type="file" name="file">
-                      </div>
+                      </div> --}}
                       <td>
-                        <a href=""
-                        class="btn btn-info"><span class="fa fa-edit (alias)"> Edit</span></a>
-
-                      </td>
-                      <td>
-                        <form action="#" method="post">
-
-                        {{method_field('DELETE')}}
+                        <a href="3"class="btn btn-info"><span class="fa fa-edit (alias)"> Edit</span></a></td>
+                      <td><form action="jabatan/hapus/{{$jabatan->id}}">
                         <button class="btn btn-danger" type="submit" ><span class="fa fa-trash"> Hapus</span></button>
                         </form>
                       </td>
-
                     </tr>
 
                   </tbody>
+                  @endforeach
                 </table>
 
 

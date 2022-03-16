@@ -30,7 +30,7 @@ Route::get('/', function () {
 
 Route::get('login', [LoginController::class, 'login'])->name('login');
 Route::get('registrasi', [LoginController::class, 'registrasi'])->name('registrasi');
-Route::post('registrasi_simpan', [LoginController::class, 'registrasi_simpan'])->name('registrasi_simpan');
+// Route::post('registrasi_simpan', [LoginController::class, 'registrasi_simpan'])->name('registrasi_simpan');
 
 Route::get('admin_index', [UserController::class, 'admin_index'])->name('admin_index');
 Route::get('admin_add', [UserController::class, 'admin_add'])->name('admin_add');
@@ -41,7 +41,8 @@ Route::get('pegawai/add', [PegawaiController::class, 'add'])->name('pegawai/add'
 
 Route::get('agama', [AgamaController::class, 'index'])->name('agama');
 Route::get('agama/add', [AgamaController::class, 'add'])->name('agama/add');
-
+Route::post('agama', [AgamaController::class, 'simpan_agama'])->name('simpan_agama');
+Route::get('agama/hapus/{id}', [AgamaController::class, 'hapus'])->name('hapus');
 
 Route::get('darah', [DarahController::class, 'index'])->name('darah');
 Route::get('darah/add', [DarahController::class, 'add'])->name('darah/add');
@@ -59,3 +60,6 @@ Route::get('pengalaman', [PengalamanController::class, 'index'])->name('pengalam
 Route::get('pengalaman/add', [PengalamanController::class, 'add'])->name('pengalaman/add');
 
 Route::get('jabatan', [JabatanController::class, 'index'])->name('jabatan');
+Route::get('jabatan/add', [JabatanController::class, 'add'])->name('jabatan/add');
+Route::post('jabatan', [JabatanController::class, 'simpan_jabatan'])->name('simpan_jabatan');
+Route::get('jabatan/hapus/{id}', [JabatanController::class, 'hapus'])->name('hapus');

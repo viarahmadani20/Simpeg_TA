@@ -60,9 +60,10 @@
           <ul class="treeview-menu">
             <li><a class="treeview-item" href="{{route('agama')}}"><i class="icon fa fa-circle-o"></i> Agama</a></li>
             <li><a class="treeview-item" href="#"><i class="icon fa fa-circle-o"></i> Kewarganegaraan</a></li>
-            <li><a class="treeview-item" href="{{route('darah')}}"><i class="icon fa fa-circle-o"></i> Golongan Darah</a></li>
+            <li><a class="treeview-item" href="{{route('darah')}}"><i class="icon fa fa-circle-o"></i> Golongan</a></li>
             <li><a class="treeview-item" href="{{route('keluarga')}}"><i class="icon fa fa-circle-o"></i> Keluarga</a></li>
             <li><a class="treeview-item" href="{{route('jabatan')}}"><i class="icon fa fa-circle-o"></i> Jabatan</a></li>
+            <li><a class="treeview-item" href="{{route('pendidikan')}}"><i class="icon fa fa-circle-o"></i> Pendidikan</a></li>
 
           </ul>
         </li>
@@ -79,7 +80,7 @@
         <!-- <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-th-list"></i><span class="app-menu__label">Data Referensi</span><i class="treeview-indicator fa fa-angle-right"></i></a> -->
           <ul class="treeview-menu">
             <li><a class="treeview-item" href="{{route('keluarga')}}"><i class="icon fa fa-circle-o"></i> Keluarga</a></li>
-            <li><a class="treeview-item" href="pendidikan"><i class="icon fa fa-circle-o"></i> Pendidikan</a></li>
+            <li><a class="treeview-item" href="{{route('pendidikan')}}"><i class="icon fa fa-circle-o"></i> Pendidikan</a></li>
           </ul>
         </li>
         <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-file-text"></i><span class="app-menu__label">Rekap Data</span><i class="treeview-indicator fa fa-angle-right"></i></a>
