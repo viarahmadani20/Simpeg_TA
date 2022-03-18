@@ -41,7 +41,7 @@ active
                       <tr>
                       <td class="sorting_1" >{{$no_agama+1}}</td>
                       <td>{{$agama->nama_agama}}</td>
-                      <td><a href="#"class="btn btn-info"><span class="fa fa-edit (alias)"> Edit</span></a></td>
+                      <td><a href="{{route('edit', $agama->id)}}"class="btn btn-info"><span class="fa fa-edit (alias)"> Edit</span></a></td>
                       <td><form action="agama/hapus/{{$agama->id}}" >
                         <button class="btn btn-danger" type="submit" ><span class="fa fa-trash"> Hapus</span></button>
                       </td>

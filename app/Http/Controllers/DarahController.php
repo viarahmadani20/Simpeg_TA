@@ -7,10 +7,10 @@ use Illuminate\Http\Request;
 class DarahController extends Controller
 {
     public function index(){
-        return view ('darah.tampil');
+        return view ('golongan.tampil');
     }
 
     public function add(){
-        return view ('darah.add');
+        return view ('golongan.add');
     }
 }

@@ -34,6 +34,11 @@ Route::get('registrasi', [LoginController::class, 'registrasi'])->name('registra
 
 Route::get('admin_index', [UserController::class, 'admin_index'])->name('admin_index');
 Route::get('admin_add', [UserController::class, 'admin_add'])->name('admin_add');
+Route::get('pegawaiuser_index', [UserController::class, 'pegawaiuser_index'])->name('pegawaiuser_index');
+Route::get('pegawaiuser_add', [UserController::class, 'pegawaiuser_add'])->name('pegawaiuser_add');
+Route::get('guruuser_index', [UserController::class, 'guruuser_index'])->name('guruuser_index');
+Route::get('guruuser_add', [UserController::class, 'guruuser_add'])->name('guruuser_add');
+
 
 Route::get('pegawai/index', [PegawaiController::class, 'index'])->name('pegawai/index');
 Route::get('pegawai/add', [PegawaiController::class, 'add'])->name('pegawai/add');
@@ -43,6 +48,9 @@ Route::get('agama', [AgamaController::class, 'index'])->name('agama');
 Route::get('agama/add', [AgamaController::class, 'add'])->name('agama/add');
 Route::post('agama', [AgamaController::class, 'simpan_agama'])->name('simpan_agama');
 Route::get('agama/hapus/{id}', [AgamaController::class, 'hapus'])->name('hapus');
+Route::get('agama/edit/{id}', [AgamaController::class, 'edit'])->name('edit');
+Route::post('agama/simpan_edit/{id}', [AgamaController::class, 'simpan_edit'])->name('simpan_edit');
+
 
 Route::get('darah', [DarahController::class, 'index'])->name('darah');
 Route::get('darah/add', [DarahController::class, 'add'])->name('darah/add');

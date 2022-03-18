@@ -59,7 +59,7 @@
         <li class="treeview"><a class="app-menu__item @yield('master')" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-edit"></i><span class="app-menu__label">Tabel Master</span><i class="treeview-indicator fa fa-angle-right"></i></a>
           <ul class="treeview-menu">
             <li><a class="treeview-item" href="{{route('agama')}}"><i class="icon fa fa-circle-o"></i> Agama</a></li>
-            <li><a class="treeview-item" href="#"><i class="icon fa fa-circle-o"></i> Kewarganegaraan</a></li>
+            {{-- <li><a class="treeview-item" href="#"><i class="icon fa fa-circle-o"></i> Kewarganegaraan</a></li> --}}
             <li><a class="treeview-item" href="{{route('darah')}}"><i class="icon fa fa-circle-o"></i> Golongan</a></li>
             <li><a class="treeview-item" href="{{route('keluarga')}}"><i class="icon fa fa-circle-o"></i> Keluarga</a></li>
             <li><a class="treeview-item" href="{{route('jabatan')}}"><i class="icon fa fa-circle-o"></i> Jabatan</a></li>
