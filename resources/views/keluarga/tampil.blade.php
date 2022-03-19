@@ -24,48 +24,40 @@ active
           <div class="row">
             <div class="col-lg-12">
               <!-- <h2 class="mb-3 line-head" id="buttons">Data Pegawai</h2> -->
-              <div class="form-group col-md 8">              
-              <a href="{{Route('keluarga/add')}}"
+              <div class="form-group col-md 8">
+              <a href="{{route('keluarga/add')}}"
               class="btn btn-primary"><span class="fa fa-plus"> Tambah Status</span></a>
               </div>
                 <table class="table table-hover">
                   <thead>
-                    <tr>
-                      <th>No</th>
-                      <th>Status</th>                                                          
-                      <th>Operasi</th>                      
-                    </tr>
+                    <tr role="row">
+                        <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="No: activate to sort column ascending" style="width: 91.0625px;" >No</th>
+                        <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="nama_keluarga: activate to sort column ascending" style="width: 91.0625px;" >Keluarga</th>
+                        <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="operasi: activate to sort column ascending" style="width: 91.0625px;" >Operasi</th>
+                      </tr>
                   </thead>
+                  @foreach ( $daftar_keluarga as $no_keluarga=>$keluarga )
                   <tbody>
-                 
                     <tr>
-                      <td>1</td>
-                      <td>Menikah</td>                     
-                      <td>
-                        <a href="#"
-                        class="btn btn-info"><span class="fa fa-edit (alias)"> Edit</span></a>
-
-                      </td>
-                      <td>
-                        <form action="#" method="post">
-                      
-                        {{method_field('DELETE')}}
-                        <button class="btn btn-danger" type="submit" ><span class="fa fa-trash"> Hapus</span></button>
+                      <td class = "sorting_1">{{$no_keluarga+1}}</td>
+                      <td>{{$keluarga->nama_keluarga}}</td>
+                      <td><a href="{{route('editt', $keluarga->id)}}"class="btn btn-info"><span class="fa fa-edit (alias)"> Edit</span></a></td>
+                      <td><form action="keluarga/hapus/{{$keluarga->id}}"><button class="btn btn-danger" type="submit" ><span class="fa fa-trash"> Hapus</span></button>
                         </form>
                       </td>
-                      
-                    </tr>
-                   
-                    
-                  </tbody>
-                </table>           
-          
 
-            </div>            
+
+                    </tr>
+                  </tbody>
+                  @endforeach
+                </table>
+
+
+            </div>
           </div>
         </div>
-        <div class="row">      
-          
+        <div class="row">
+
         </div>
       </div>
     </main>

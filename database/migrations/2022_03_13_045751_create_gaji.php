@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePelatihan extends Migration
+class CreateGaji extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreatePelatihan extends Migration
      */
     public function up()
     {
-        Schema::create('pelatihan', function (Blueprint $table) {
+        Schema::create('gaji', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
         });
@@ -26,6 +26,6 @@ class CreatePelatihan extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pelatihan');
+        Schema::dropIfExists('gaji');
     }
 }

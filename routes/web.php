@@ -12,6 +12,8 @@ use App\Http\Controllers\JabatanController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\LaporanController;
+use App\Http\Controllers\GajiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -48,8 +50,8 @@ Route::get('agama', [AgamaController::class, 'index'])->name('agama');
 Route::get('agama/add', [AgamaController::class, 'add'])->name('agama/add');
 Route::post('agama', [AgamaController::class, 'simpan_agama'])->name('simpan_agama');
 Route::get('agama/hapus/{id}', [AgamaController::class, 'hapus'])->name('hapus');
-Route::get('agama/edit/{id}', [AgamaController::class, 'edit'])->name('edit');
-Route::post('agama/simpan_edit/{id}', [AgamaController::class, 'simpan_edit'])->name('simpan_edit');
+Route::get('agama/editt/{id}', [AgamaController::class, 'ediit'])->name('ediit');
+Route::post('agama/simpn_edit/{id}', [AgamaController::class, 'simpn_edit'])->name('simpn_edit');
 
 
 Route::get('darah', [DarahController::class, 'index'])->name('darah');
@@ -58,8 +60,18 @@ Route::get('darah/add', [DarahController::class, 'add'])->name('darah/add');
 Route::get('pendidikan', [PendidikanController::class, 'index'])->name('pendidikan');
 Route::get('pendidikan/add', [PendidikanController::class, 'add'])->name('pendidikan/add');
 
+Route::get('laporan',[LaporanController::class, 'index'])->name('laporan');
+
+Route::get('gaji', [GajiController::class, 'index'])->name('gaji');
+Route::get('gaji/add', [GajiController::class, 'add'])->name('gaji/add');
+
 Route::get('keluarga', [KeluargaController::class, 'index'])->name('keluarga');
 Route::get('keluarga/add', [KeluargaController::class, 'add'])->name('keluarga/add');
+Route::post('keluarga', [KeluargaController::class, 'simpan_keluarga'])->name('simpan_keluarga');
+Route::get('keluarga/hapus/{id}', [KeluargaController::class, 'hapus'])->name('hapus');
+Route::get('keluarga/editt/{id}', [KeluargaController::class, 'editt'])->name('editt');
+Route::post('keluarga/save_edit/{id}', [KeluargaController::class, 'save_edit'])->name('save_edit');
+
 
 Route::get('negara', [NegaraController::class, 'index'])->name('negara');
 Route::get('negara/add', [NegaraController::class, 'add'])->name('negara/add');
@@ -71,3 +83,5 @@ Route::get('jabatan', [JabatanController::class, 'index'])->name('jabatan');
 Route::get('jabatan/add', [JabatanController::class, 'add'])->name('jabatan/add');
 Route::post('jabatan', [JabatanController::class, 'simpan_jabatan'])->name('simpan_jabatan');
 Route::get('jabatan/hapus/{id}', [JabatanController::class, 'hapus'])->name('hapus');
+Route::get('jabatan/edit/{id}', [JabatanController::class, 'edit'])->name('edit');
+Route::post('jabatan/simpan_edit/{id}', [JabatanController::class, 'simpan_edit'])->name('simpan_edit');

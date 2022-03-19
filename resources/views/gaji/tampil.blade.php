@@ -1,5 +1,5 @@
 @section('title')
- Laporan
+ Gaji
 @endsection
 @section('master')
 active
@@ -9,12 +9,12 @@ active
     <main class="app-content">
       <div class="app-title">
         <div class="div">
-          <h1><i class="fa fa-laptop"></i> Laporan</h1>
+          <h1><i class="fa fa-laptop"></i> Gaji</h1>
           <!-- <p>Bootstrap Components</p> -->
         </div>
         <ul class="app-breadcrumb breadcrumb">
           <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
-          <li class="breadcrumb-item"><a href="#">Laporan</a></li>
+          <li class="breadcrumb-item"><a href="#">Gaji</a></li>
         </ul>
       </div>
       <!-- Buttons-->
@@ -24,14 +24,14 @@ active
             <div class="col-lg-12">
               <!-- <h2 class="mb-3 line-head" id="buttons">Data Pegawai</h2> -->
               <div class="form-group col-md 8">
-              <a href="{{route('negara/add')}}"
-              class="btn btn-primary"><span class="fa fa-plus"> Tambah Laporan</span></a>
+              <a href="{{route('gaji/add')}}"
+              class="btn btn-primary"><span class="fa fa-view"> Lihat Gaji</span></a>
               </div>
                 <table class="table table-hover">
                   <thead>
                     <tr>
                       <th>No</th>
-                      <th>Laporan</th>
+                      <th>Gaji Bulanan</th>
                       <th>Operasi</th>
                     </tr>
                   </thead>
@@ -40,13 +40,7 @@ active
 
                     <tr>
                       <td>1</td>
-                      <td>Dana masukan senilai 1000.000,00</td>
-                      <div class="form-group row">
-                        <label class="control-label col-md-3">Dokumen</label>
-                        <div class="col-md-5">
-                          <input class="form-control col-md-8" type="file" name="file">
-                        </div>
-                      </div>
+                      <td>5.000.000,00</td>
                       <td>
                         <a href="#"
                         class="btn btn-info"><span class="fa fa-edit (alias)"> Edit</span></a>

@@ -19,15 +19,15 @@ active
           <li class="breadcrumb-item"><a href="#">Tambah Pegawai</a></li>
         </ul>
       </div>
-      
-      <div class="row">        
+
+      <div class="row">
         <div class="col-md-12">
           <div class="tile">
-            <!-- <h3 class="tile-title">Register</h3> -->            
+            <!-- <h3 class="tile-title">Register</h3> -->
             <div class="tile-body">
               <!-- <form class="form-horizontal" action="#" method="post"> -->
               <form class="form-horizontal" action="{{url('/pegawai')}}" method="post">
-                {{ csrf_field()}} 
+                {{ csrf_field()}}
                 <div class="form-group row">
                   <label class="control-label col-md-3">NIP</label>
                   <div class="col-md-8">
@@ -51,7 +51,7 @@ active
                     <div class="col-md-8">
                       <input class="form-control col-md-8" type="date" name="tgl_lahir" >
                     </div>
-                </div>                   
+                </div>
                 <div class="form-group row">
                   <label class="control-label col-md-3">Alamat</label>
                   <div class="col-md-8">
@@ -72,50 +72,50 @@ active
                       </label>
                     </div>
                   </div>
-                </div>               
+                </div>
                 <div class="form-group row">
                   <label class="control-label col-md-3">Agama</label>
                     <div class="col-md-8">
                         <select class="form-control" name="agama_id" id="exampleSelect1">
-                          
-                            <option value="#">Islam</option> 
-                                                   
+
+                            <option value="#">Islam</option>
+
                         </select>
-                    </div>                    
-                </div>  
-                
-                <div class="form-group row">
+                    </div>
+                </div>
+
+                {{-- <div class="form-group row">
                   <label class="control-label col-md-3">Kewarganegaraan</label>
                     <div class="col-md-8">
                         <select class="form-control" name="negara_id" id="exampleSelect1">
-                            
-                            <option value="#">Indonesia</option> 
-                                                    
+
+                            <option value="#">Indonesia</option>
+
                         </select>
-                    </div>                    
-                </div>  
-                
+                    </div>
+                </div> --}}
+
                 <div class="form-group row">
-                  <label class="control-label col-md-3">Golongan Darah</label>
+                  <label class="control-label col-md-3">Golongan</label>
                     <div class="col-md-8">
                         <select class="form-control" name="gol_darah_id" id="exampleSelect1">
-                            
-                            <option value="#">AB</option> 
-                                                       
+
+                            <option value="#">1</option>
+
                         </select>
-                    </div>                    
-                </div>  
+                    </div>
+                </div>
                 <div class="form-group row">
                   <label class="control-label col-md-3">Status</label>
                     <div class="col-md-8">
                         <select class="form-control" name="skeluarga_id" id="exampleSelect1">
-                            
-                            <option value="#">Menikah</option> 
-                                                     
+
+                            <option value="#">Menikah</option>
+
                         </select>
-                    </div>                    
-                </div>  
-                
+                    </div>
+                </div>
+
                 <div class="form-group row">
                   <label class="control-label col-md-3">Foto</label>
                   <div class="col-md-8">
@@ -126,22 +126,22 @@ active
                   <label class="control-label col-md-3">Nomor HP</label>
                   <div class="col-md-8">
                     <input class="form-control" type="text" name="nohp">
-                  </div>           
+                  </div>
                 </div>
 
             <div class="tile-footer">
-              <div class="row">              
+              <div class="row">
               <div class="col-md-8 col-md-offset-3">
                   <button class="btn btn-primary" type="submit"><i class="fa fa-fw fa-lg fa-check-circle"></i>Tambah</button>
                   <a class="btn btn-secondary" href="http://127.0.0.1:8000/pegawai"><i class="fa fa-fw fa-lg fa-times-circle"></i>Kembali</a>
-                </div>        
-                
+                </div>
+
               </div>
               </form>
             </div>
 
           </div>
-        </div>               
+        </div>
       </div>
     </main>
 

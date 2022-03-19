@@ -26,7 +26,7 @@ active
             <div class="col-lg-12">
                 <div class="form-group col-md 8">
                     <a href="{{route('pegawai/add')}}"
-                    class="btn btn-primary"><span class="fa fa-plus">Tambah Agama</span></a>
+                    class="btn btn-primary"><span class="fa fa-plus">Tambah Pegawai</span></a>
                 </div>
 
                 <table class="table table-hover">

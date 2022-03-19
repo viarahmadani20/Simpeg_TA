@@ -59,7 +59,7 @@
         <li class="treeview"><a class="app-menu__item @yield('master')" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-edit"></i><span class="app-menu__label">Tabel Master</span><i class="treeview-indicator fa fa-angle-right"></i></a>
           <ul class="treeview-menu">
             <li><a class="treeview-item" href="{{route('agama')}}"><i class="icon fa fa-circle-o"></i> Agama</a></li>
-            {{-- <li><a class="treeview-item" href="#"><i class="icon fa fa-circle-o"></i> Kewarganegaraan</a></li> --}}
+            <li><a class="treeview-item" href="{{route('gaji')}}"><i class="icon fa fa-circle-o"></i> Gaji</a></li>
             <li><a class="treeview-item" href="{{route('darah')}}"><i class="icon fa fa-circle-o"></i> Golongan</a></li>
             <li><a class="treeview-item" href="{{route('keluarga')}}"><i class="icon fa fa-circle-o"></i> Keluarga</a></li>
             <li><a class="treeview-item" href="{{route('jabatan')}}"><i class="icon fa fa-circle-o"></i> Jabatan</a></li>
@@ -85,7 +85,10 @@
         </li>
         <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-file-text"></i><span class="app-menu__label">Rekap Data</span><i class="treeview-indicator fa fa-angle-right"></i></a>
           <ul class="treeview-menu">
-            <li><a class="treeview-item" href="#"><i class="icon fa fa-circle-o"></i> Pegawai</a></li>
+            <li><a class="treeview-item" href="{{route('negara')}}"><i class="icon fa fa-circle-o"></i> Laporan</a></li>
+          </ul>
+          <ul class="treeview-menu">
+            <li><a class="treeview-item" href="{{route('pengalaman')}}"><i class="icon fa fa-circle-o"></i> Surat Menyurat</a></li>
           </ul>
         </li>
         <li><a class="app-menu__item @yield('admin')" href="{{route('admin_index')}}"><i class="app-menu__icon fa fa-dashboard"></i><span class="app-menu__label">User</span></a></li>

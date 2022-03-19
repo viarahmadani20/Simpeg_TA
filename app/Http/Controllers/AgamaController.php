@@ -40,7 +40,7 @@ class AgamaController extends Controller
     }
 
 
-    public function edit($id)
+    public function ediit($id)
     {
         $agama= Agama::find($id);
         return view('agama.edit', compact('agama'));
@@ -48,7 +48,7 @@ class AgamaController extends Controller
 
 
 
-    public function simpan_edit (Request $request, $id)
+    public function simpn_edit (Request $request, $id)
     {
     $agama = Agama::find($id);
     $agama->nama_agama = $request ->nama_agama;

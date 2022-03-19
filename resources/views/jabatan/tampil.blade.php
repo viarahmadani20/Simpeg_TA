@@ -48,7 +48,7 @@ active
                         <input class="form-control col-md-8" type="file" name="file">
                       </div> --}}
                       <td>
-                        <a href="3"class="btn btn-info"><span class="fa fa-edit (alias)"> Edit</span></a></td>
+                        <a href="{{route('edit', $jabatan->id)}}"class="btn btn-info"><span class="fa fa-edit (alias)"> Edit</span></a></td>
                       <td><form action="jabatan/hapus/{{$jabatan->id}}">
                         <button class="btn btn-danger" type="submit" ><span class="fa fa-trash"> Hapus</span></button>
                         </form>
