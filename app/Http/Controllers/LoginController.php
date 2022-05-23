@@ -46,8 +46,41 @@ class LoginController extends Controller
          $request->session()->invalidate();
          $request->session()->regenerateToken();
 
-         return redirect('/');
+         return redirect('auth.login');
      }
+
+     public function simpan_login(Request $request){
+
+        $credentials = [
+            "email" => $request->email,
+            "password" => $request->password
+            ];
+
+            if (Auth::attempt($credentials)) {
+
+                $request->session()->regenerate();
+
+                $user = auth()->user();
+
+                if ($user ->hasRole('admin')){
+                    return redirect()->route('admin/tampil');
+                }
+
+                else if ($user->hasRole('guru')){
+                    return redirect()->route('guru/tampil');
+
+                }
+
+                else if($user->hasRole('pegawai'))
+
+                return redirect()->route('pegawai/tampil');
+
+            }
+            return back()->withErrors([
+                'email' => 'The provided credentials do not match our records.',
+            ]);
+        }
+
 
 
 }

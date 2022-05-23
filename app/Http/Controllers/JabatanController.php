@@ -51,6 +51,7 @@ class JabatanController extends Controller
     public function simpan_edit (Request $request, $id)
     {
     $jabatan = Jabatan::find($id);
+    $jabatan->nama = $request ->nama;
     $jabatan->nama_jabatan = $request ->nama_jabatan;
     $jabatan->save();
 

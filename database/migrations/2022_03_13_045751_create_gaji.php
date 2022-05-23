@@ -15,6 +15,7 @@ class CreateGaji extends Migration
     {
         Schema::create('gaji', function (Blueprint $table) {
             $table->id();
+            $table->string('jmlhgaji');
             $table->timestamps();
         });
     }

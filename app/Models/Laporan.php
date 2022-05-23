@@ -5,9 +5,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Pendidikan extends Model
+class Laporan extends Model
 {
-    protected $table = "pendidikan";
-    protected $primaryKey = "id";
+    protected $table = "laporan";
+    protected $primaryKey ="id";
     protected $guarded = ['id'];
 }

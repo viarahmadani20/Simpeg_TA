@@ -2,12 +2,12 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AgamaController;
-use App\Http\Controllers\DarahController;
+use App\Http\Controllers\GolonganController;
 use App\Http\Controllers\PendidikanController;
 use App\Http\Controllers\KeluargaController;
 use App\Http\Controllers\NegaraController;
 use App\Http\Controllers\PegawaiController;
-use App\Http\Controllers\PengalamanController;
+use App\Http\Controllers\SuratController;
 use App\Http\Controllers\JabatanController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\UserController;
@@ -27,11 +27,20 @@ use App\Http\Controllers\GajiController;
 */
 
 Route::get('/', function () {
-    return view('pegawai/tampil');
-});
+    return view('auth/login');
+})->name('login');
 
-Route::get('login', [LoginController::class, 'login'])->name('login');
+Route::get('/guru', function(){
+    return view('appguru');
+})->name('guru/tampil');
+
+Route::get('/admin', function(){
+    return view('appadmin');
+})->name('admin/tampil');
+
+// Route::get('login', [LoginController::class, 'login'])->name('login');
 Route::get('registrasi', [LoginController::class, 'registrasi'])->name('registrasi');
+Route::post('simpan_login', [LoginController::class, 'simpan_login'])->name('simpan_login');
 // Route::post('registrasi_simpan', [LoginController::class, 'registrasi_simpan'])->name('registrasi_simpan');
 
 Route::get('admin_index', [UserController::class, 'admin_index'])->name('admin_index');
@@ -44,6 +53,7 @@ Route::get('guruuser_add', [UserController::class, 'guruuser_add'])->name('guruu
 
 Route::get('pegawai/index', [PegawaiController::class, 'index'])->name('pegawai/index');
 Route::get('pegawai/add', [PegawaiController::class, 'add'])->name('pegawai/add');
+Route::get('pegawai/tampil', [PegawaiController::class, 'tampil'])->name('pegawai/tampil');
 
 
 Route::get('agama', [AgamaController::class, 'index'])->name('agama');
@@ -54,16 +64,31 @@ Route::get('agama/editt/{id}', [AgamaController::class, 'ediit'])->name('ediit')
 Route::post('agama/simpn_edit/{id}', [AgamaController::class, 'simpn_edit'])->name('simpn_edit');
 
 
-Route::get('darah', [DarahController::class, 'index'])->name('darah');
-Route::get('darah/add', [DarahController::class, 'add'])->name('darah/add');
+Route::get('golongan', [GolonganController::class, 'index'])->name('golongan');
+Route::get('golongan/add', [GolonganController::class, 'add'])->name('golongan/add');
+Route::get('golongan/editg/{id}', [GolonganController::class, 'editg'])->name('editg');
+Route::post('golongan', [GolonganController::class, 'simpan_golongan'])->name('simpan_golongan');
+Route::get('golongan/hapus/{id}', [GolonganController::class, 'hapus'])->name('hapus');
+Route::post('golongan/gol_edit/{id}', [GolonganController::class, 'gol_edit'])->name('gol_edit');
+
 
 Route::get('pendidikan', [PendidikanController::class, 'index'])->name('pendidikan');
 Route::get('pendidikan/add', [PendidikanController::class, 'add'])->name('pendidikan/add');
+Route::post('pendidikan', [PendidikanController::class, 'simpan_pendidikan'])->name('simpan_pendidikan');
+Route::get('pendidikan/hapus/{id}', [PendidikanController::class, 'hapus'])->name('hapus');
+Route::get('pendidikan/editp/{id}', [PendidikanController::class, 'editp'])->name('editp');
+Route::post('pendidikan/simpan_editp/{id}', [PendidikanController::class, 'simpan_editp'])->name('simpan_editp');
+
 
 Route::get('laporan',[LaporanController::class, 'index'])->name('laporan');
 
 Route::get('gaji', [GajiController::class, 'index'])->name('gaji');
 Route::get('gaji/add', [GajiController::class, 'add'])->name('gaji/add');
+Route::post('gaji', [GajiController::class, 'simpan_gaji'])->name('simpan_gaji');
+Route::get('gaji/hapus/{id}', [GajiController::class, 'hapus'])->name('hapus');
+Route::get('gaji/editt/{id}', [GajiController::class, 'edit'])->name('editg');
+Route::post('gaji/simpan_edit/{id}', [GajiController::class, 'simpan_edit'])->name('simpan_editg');
+
 
 Route::get('keluarga', [KeluargaController::class, 'index'])->name('keluarga');
 Route::get('keluarga/add', [KeluargaController::class, 'add'])->name('keluarga/add');
@@ -73,11 +98,16 @@ Route::get('keluarga/editt/{id}', [KeluargaController::class, 'editt'])->name('e
 Route::post('keluarga/save_edit/{id}', [KeluargaController::class, 'save_edit'])->name('save_edit');
 
 
-Route::get('negara', [NegaraController::class, 'index'])->name('negara');
-Route::get('negara/add', [NegaraController::class, 'add'])->name('negara/add');
+Route::get('laporan', [LaporanController::class, 'index'])->name('laporan');
+Route::get('laporan/add', [LaporanController::class, 'add'])->name('laporan/add');
+Route::post('laporan', [LaporanController::class, 'simpan_laporan'])->name('simpan_laporan');
+Route::get('laporan/hapus/{id}', [LaporanController::class, 'hapus'])->name('hapus');
+Route::get('laporan/editlaporan/{id}', [LaporanController::class, 'editlaporan'])->name('editlaporan');
+Route::post('laporan/lap_edit/{id}', [LaporanController::class, 'lap_edit'])->name('lap_edit');
 
-Route::get('pengalaman', [PengalamanController::class, 'index'])->name('pengalaman');
-Route::get('pengalaman/add', [PengalamanController::class, 'add'])->name('pengalaman/add');
+
+Route::get('surat', [SuratController::class, 'index'])->name('surat');
+Route::get('surat/add', [SuratController::class, 'add'])->name('surat/add');
 
 Route::get('jabatan', [JabatanController::class, 'index'])->name('jabatan');
 Route::get('jabatan/add', [JabatanController::class, 'add'])->name('jabatan/add');

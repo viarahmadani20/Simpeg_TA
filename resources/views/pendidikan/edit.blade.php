@@ -1,5 +1,5 @@
 @section('title')
-Tambah Pendidikan
+Edit Pendidikan
 @endsection
 @section('pegawai')
 active
@@ -10,7 +10,7 @@ active
 <main class="app-content">
       <div class="app-title">
         <div>
-          <h1><i class="fa fa-edit"></i> Tambah Pendidikan</h1>
+          <h1><i class="fa fa-edit"></i> Edit Pendidikan</h1>
           <!-- <p>Sample forms</p> -->
         </div>
         <ul class="app-breadcrumb breadcrumb">
@@ -18,7 +18,7 @@ active
           <li class="breadcrumb-item">...</li>
           <li class="breadcrumb-item"><a href="#">Detail Pegawai</a></li>
           <li class="breadcrumb-item"><a href="#">Pendidikan</a></li>
-          <li class="breadcrumb-item"><a href="#">Tambah Pendidikan</a></li>
+          <li class="breadcrumb-item"><a href="#">Edit Pendidikan</a></li>
         </ul>
       </div>
 
@@ -26,18 +26,18 @@ active
         <div class="col-md-12">
           <div class="tile">
             <div class="tile-body">
-              <form class="form-horizontal" action="{{url('/pendidikan')}}" method="post" action="{{ route('simpan_pendidikan')}}">
-                <div class = "form-group row">
+              <form class="form-horizontal"  method="post" action="{{ route('simpan_editp', $pendidikan->id)}}">
+                <div class="form-group row">
                     @csrf
                   <label class="control-label col-md-3">Tahun Pendidikan</label>
                   <div class="col-md-8">
-                    <input class="form-control col-md-8" type="text" name="tahun_pendidikan">
+                    <input class="form-control col-md-8" value="{{$pendidikan->tahun_pendidikan}}" name="tahun_pendidikan">
                   </div>
                 </div>
                 <div class="form-group row">
                   <label class="control-label col-md-3">Pendidikan Terakhir</label>
                   <div class="col-md-8">
-                    <input class="form-control col-md-8" type="text" name="nama_pendidikan">
+                    <input class="form-control col-md-8" value="{{$pendidikan->nama_pendidikan}}" name="nama_pendidikan">
                   </div>
                 </div>
                 </div>
@@ -45,7 +45,7 @@ active
             <div class="tile-footer">
               <div class="row">
                 <div class="col-md-8 col-md-offset-3">
-                  <button class="btn btn-primary" type="submit"><i class="fa fa-fw fa-lg fa-check-circle"></i>Tambah</button>
+                  <button class="btn btn-primary" type="submit"><i class="fa fa-fw fa-lg fa-check-circle"></i>Edit</button>
                   <a class="btn btn-secondary" href="http://127.0.0.1:8000/pendidikan"><i class="fa fa-fw fa-lg fa-times-circle"></i>Kembali</a>
                 </div>
               </div>

@@ -4,8 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-
-class CreateGolongan extends Migration
+class CreateLaporan extends Migration
 {
     /**
      * Run the migrations.
@@ -14,9 +13,10 @@ class CreateGolongan extends Migration
      */
     public function up()
     {
-        Schema::create('golongan', function (Blueprint $table) {
+        Schema::create('laporan', function (Blueprint $table) {
             $table->id();
-            $table->string('nama_golongan');
+            $table->string('nama_laporan');
+            $table->string('file');
             $table->timestamps();
         });
     }
@@ -28,6 +28,6 @@ class CreateGolongan extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('golongan');
+        Schema::dropIfExists('laporan');
     }
 }

@@ -25,47 +25,33 @@ active
               <!-- <h2 class="mb-3 line-head" id="buttons">Data Pegawai</h2> -->
               <div class="form-group col-md 8">
               <a href="{{route('gaji/add')}}"
-              class="btn btn-primary"><span class="fa fa-view"> Lihat Gaji</span></a>
+              class="btn btn-primary"><span class="fa fa-view"> Tambah Gaji</span></a>
               </div>
                 <table class="table table-hover">
                   <thead>
                     <tr>
-                      <th>No</th>
-                      <th>Gaji Bulanan</th>
-                      <th>Operasi</th>
+                        <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="No: activate to sort column ascending" style="width: 91.0625px;" >No</th>
+                        <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="jmlhgaji: activate to sort column ascending" style="width: 91.0625px;" >Gaji</th>
+                        <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="operasi: activate to sort column ascending" style="width: 91.0625px;" >Operasi </th>
                     </tr>
                   </thead>
+                  @foreach ( $daftar_gaji as $no_gaji =>$gaji )
                   <tbody>
-
-
                     <tr>
-                      <td>1</td>
-                      <td>5.000.000,00</td>
-                      <td>
-                        <a href="#"
-                        class="btn btn-info"><span class="fa fa-edit (alias)"> Edit</span></a>
-
-                      </td>
-                      <td>
-                        <form action="#" method="post">
-                        {{csrf_field()}}
-                        {{method_field('DELETE')}}
-                        <button class="btn btn-danger" type="submit" ><span class="fa fa-trash"> Hapus</span></button>
-                        </form>
-                      </td>
-
+                        <td class="sorting_1">{{$no_gaji+1}}</td>
+                        <td>{{$gaji->jmlhgaji}}</td>
+                        <td><a href="{{route('editg', $gaji->id)}}" class="btn btn-info"><span class="fa fa-edit (alias)">Edit</span></a></td>
+                        <td><form action="gaji/hapus/{{$gaji->id}}" class="d-inline-block">
+                            <button class="btn btn-danger" type="submit" ><span class="fa fa-trash"> Hapus</span></button>
+                        </td>
                     </tr>
-
-
                   </tbody>
+                  @endforeach
                 </table>
-
-
             </div>
           </div>
         </div>
         <div class="row">
-
         </div>
       </div>
     </main>

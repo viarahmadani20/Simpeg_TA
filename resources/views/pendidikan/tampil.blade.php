@@ -15,7 +15,7 @@ active
         <ul class="app-breadcrumb breadcrumb">
           <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
           <li class="breadcrumb-item">...</li>
-          <li class="breadcrumb-item"><a href="#">Detail Pegawai</a></li>
+          <li class="breadcrumb-item"><a href="#">Detail Pendidkan</a></li>
           <li class="breadcrumb-item"><a href="#">Pendidikan</a></li>
         </ul>
       </div>
@@ -28,30 +28,31 @@ active
               class="btn btn-primary"><span class="fa fa-plus"> Tambah Pendidikan</span></a>
             </div>
 
-    <table class="table table-stripped table-hover">
-    <thead>
-        <th>Tahun Pendidikan</th>
-        <th>Data Pendidikan</th>
-        <th>Operasi</th>
-    </thead>
-    <tbody>
+            <table class="table table-hover">
+                <thead>
+                  <tr role="row">
+                    <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="no_pendidikan: activate to sort column ascending" style="width: 91.0625px;" >No</th>
+                    <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="tahun_pendidikan: activate to sort column ascending" style="width: 91.0625px;" >Tahun Lulus</th>
+                    <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="nama_pendidikan: activate to sort column ascending" style="width: 91.0625px;" > Pendidikan Terakhir</th>
+                    <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="operasi: activate to sort column ascending" style="width: 91.0625px;" >Operasi</th>
+                  </tr>
+                </thead>
+                @foreach ( $daftar_pendidikan as $no_pendidikan =>$pendidikan )
+                <tbody>
+                    <tr>
+                    <td class="sorting_1" >{{$no_pendidikan+1}}</td>
+                    <td>{{$pendidikan->tahun_pendidikan}}</td>
+                    <td>{{$pendidikan->nama_pendidikan}}</td>
+                    <td><a href="{{route('editp', $pendidikan->id)}}"class="btn btn-info"><span class="fa fa-edit (alias)"> Edit</span></a></td>
+                    <td><form action="pendidikan/hapus/{{$pendidikan->id}}" >
+                      <button class="btn btn-danger" type="submit" ><span class="fa fa-trash"> Hapus</span></button>
+                    </td>
+                    </form>
+                  </tr>
 
-        <tr>
-            <td>2021</td>
-            <td>Ijazah terakhir D3 Teknik Informatika</td>
-            <!-- <td><a href=""><input type="submit" class="btn btn-warning fa fa-edit"> Edit</a></td> -->
-            <td><a href="#"><button class="btn btn-warning fa fa-edit"> Edit</button></a></td>
-            <td>
-              <form action="#" method="post">
-
-              {{method_field('DELETE')}}
-              <button class="btn btn-danger fa fa-trash" type="submit" > Hapus</button>
-               </form>
-            </td>
-        </tr>
-
-    </tbody>
-    </table>
+                </tbody>
+                @endforeach
+              </table>
 
           </div>
         </div>

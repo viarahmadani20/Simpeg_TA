@@ -5,9 +5,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Pendidikan extends Model
+class Golongan extends Model
 {
-    protected $table = "pendidikan";
+    protected $table ="golongan";
     protected $primaryKey = "id";
     protected $guarded = ['id'];
 }

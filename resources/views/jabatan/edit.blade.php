@@ -28,10 +28,16 @@ active
               <form class="form-horizontal" method="post" action="{{route('simpan_edit', $jabatan->id)}}" >
                 <div class="form-group row">
                     @csrf
+                  <label class="control-label col-md-3">Nama</label>
+                    <div class="col-md-8">
+                      <input type="text" class="form-control-md-8" value="{{$jabatan->nama}}" name="nama">
+                    </div>
+
                   <label class="control-label col-md-3">Nama Jabatan</label>
                   <div class="col-md-8">
                     <input type="text" class="form-control-md-8" value="{{$jabatan->nama_jabatan}}" name="nama_jabatan">
                   </div>
+
 
               </div>
 
