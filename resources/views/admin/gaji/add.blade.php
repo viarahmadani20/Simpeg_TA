@@ -1,5 +1,5 @@
 @section('title')
-Edit Surat
+Tambah Gaji
 @endsection
 @section('master')
 active
@@ -10,37 +10,36 @@ active
 <main class="app-content">
       <div class="app-title">
         <div>
-          <h1><i class="fa fa-edit"></i> Edit Surat</h1>
+          <h1><i class="fa fa-edit"></i> Tambah Gaji</h1>
           <!-- <p>Sample forms</p> -->
         </div>
         <ul class="app-breadcrumb breadcrumb">
           <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
           <li class="breadcrumb-item">Tabel Master</li>
-          <li class="breadcrumb-item"><a href="/surat">Laporan</a></li>
-          <li class="breadcrumb-item"><a href="#">Edit Laporan</a></li>
+          <li class="breadcrumb-item"><a href="/admin/gaji">Gaji</a></li>
+          <li class="breadcrumb-item"><a href="#">Tambah Gaji</a></li>
         </ul>
       </div>
 
       <div class="row">
         <div class="col-md-12">
           <div class="tile">
-            <!-- <h3 class="tile-title">Register</h3> -->
             <div class="tile-body">
-              <!-- <form class="form-horizontal" action="#" method="post"> -->
-              <form class="form-horizontal"  method="post" action="{{route('surat_edits', $surat->id)}}">
+              <form class="form-horizontal" action="{{url('/admin/gaji')}}" method="post" action="{{ route('admin/simpan_gaji')}}">
                 <div class="form-group row">
                     @csrf
-                  <label class="control-label col-md-3">Nama Surat</label>
+                  <label class="control-label col-md-3">Nama Gaji</label>
                   <div class="col-md-8">
-                    <input class="form-control col-md-8" type="text" value="{{$surat->nama_surat}}" name="nama_surat">
+                    <input type="text" name="jmlhgaji" class="form-controller">
                   </div>
-                </div>
+
+              </div>
 
             <div class="tile-footer">
               <div class="row">
               <div class="col-md-8 col-md-offset-3">
-                  <button class="btn btn-primary" type="submit"><i class="fa fa-fw fa-lg fa-check-circle"></i>Edit</button>
-                  <a class="btn btn-secondary" href="/surat"><i class="fa fa-fw fa-lg fa-times-circle"></i>Kembali</a>
+                  <button class="btn btn-primary" type="submit"><i class="fa fa-fw fa-lg fa-check-circle"></i>Tambah</button>
+                  <a class="btn btn-secondary" href="/admin/gaji"><i class="fa fa-fw fa-lg fa-times-circle"></i>Kembali</a>
                 </div>
 
               </div>

@@ -35,35 +35,20 @@ active
                       <th>Operasi</th>
                     </tr>
                   </thead>
+                  @foreach ( $daftar_surat as $no_surat => $surat )
                   <tbody>
-
-
                     <tr>
-                      <td>1</td>
-                      <td>Ajuan surat izin cuti</td>
-                      <div class="form-group row">
-                        <label class="control-label col-md-3">Dokumen</label>
-                        <div class="col-md-5">
-                          <input class="form-control col-md-8" type="file" name="file">
-                        </div>
-                      </div>
-                      <td>
-                        <a href="#"
-                        class="btn btn-info"><span class="fa fa-edit (alias)"> Edit</span></a>
-
-                      </td>
-                      <td>
-                        <form action="#" method="post">
-                        {{csrf_field()}}
-                        {{method_field('DELETE')}}
-                        <button class="btn btn-danger" type="submit" ><span class="fa fa-trash"> Hapus</span></button>
-                        </form>
+                      <td class="sorting_1">{{$no_surat+1}}</td>
+                      <td>{{$surat->nama_surat}}</td>
+                      <td><a href="{{route('edits', $surat->id)}}"class="btn btn-info"><span class="fa fa-edit (alias)"> Edit</span></a></td>
+                      <td><form action="{{route('surat/hapus', $surat->id)}}"> <button class="btn btn-danger" type="submit" ><span class="fa fa-trash"> Hapus</span></button></form>
                       </td>
 
                     </tr>
 
 
                   </tbody>
+                  @endforeach
                 </table>
 
 

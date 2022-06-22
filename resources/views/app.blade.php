@@ -55,21 +55,21 @@
         </div>
       </div>
       <ul class="app-menu">
-        <li><a class="app-menu__item @yield('dashboard')" href="/"><i class="app-menu__icon fa fa-dashboard"></i><span class="app-menu__label">Dashboard</span></a></li>
+        <li><a class="app-menu__item @yield('dashboard')" href="{{('admin/pegawai/tampil')}}"><i class="app-menu__icon fa fa-dashboard"></i><span class="app-menu__label">Dashboard</span></a></li>
         <li class="treeview"><a class="app-menu__item @yield('master')" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-edit"></i><span class="app-menu__label">Tabel Master</span><i class="treeview-indicator fa fa-angle-right"></i></a>
           <ul class="treeview-menu">
-            <li><a class="treeview-item" href="{{route('agama')}}"><i class="icon fa fa-circle-o"></i> Agama</a></li>
-            <li><a class="treeview-item" href="{{route('gaji')}}"><i class="icon fa fa-circle-o"></i> Gaji</a></li>
-            <li><a class="treeview-item" href="{{route('keluarga')}}"><i class="icon fa fa-circle-o"></i> Keluarga</a></li>
-            <li><a class="treeview-item" href="{{route('golongan')}}"><i class="icon fa fa-circle-o"></i> Golongan</a></li>
-            <li><a class="treeview-item" href="{{route('jabatan')}}"><i class="icon fa fa-circle-o"></i> Jabatan</a></li>
-            <li><a class="treeview-item" href="{{route('pendidikan')}}"><i class="icon fa fa-circle-o"></i> Pendidikan</a></li>
+            <li><a class="treeview-item" href="{{route('admin/agama')}}"><i class="icon fa fa-circle-o"></i> Agama</a></li>
+            <li><a class="treeview-item" href="{{route('admin/gaji')}}"><i class="icon fa fa-circle-o"></i> Gaji</a></li>
+            <li><a class="treeview-item" href="{{route('admin/keluarga')}}"><i class="icon fa fa-circle-o"></i> Status</a></li>
+            <li><a class="treeview-item" href="{{route('admin/golongan')}}"><i class="icon fa fa-circle-o"></i> Golongan</a></li>
+            <li><a class="treeview-item" href="{{route('admin/jabatan')}}"><i class="icon fa fa-circle-o"></i> Jabatan</a></li>
+            <li><a class="treeview-item" href="{{route('admin/pendidikan')}}"><i class="icon fa fa-circle-o"></i> Pendidikan</a></li>
 
           </ul>
         </li>
-        <li class="treeview"><a class="app-menu__item @yield('pegawai')" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-laptop"></i><span class="app-menu__label">Pegawai</span><i class="treeview-indicator fa fa-angle-right"></i></a>
+        <li class="treeview"><a class="app-menu__item @yield('admin/pegawai')" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-laptop"></i><span class="app-menu__label">Pegawai</span><i class="treeview-indicator fa fa-angle-right"></i></a>
           <ul class="treeview-menu">
-            <li><a class="treeview-item" href="{{route('pegawai/index')}}"><i class="icon fa fa-circle-o"></i> Data Pegawai</a></li>
+            <li><a class="treeview-item" href="{{route('admin/pegawai/index')}}"><i class="icon fa fa-circle-o"></i> Data Pegawai</a></li>
             {{-- <li><a class="treeview-item" href="#" target="" rel="noopener"><i class="icon fa fa-circle-o"></i> Tambah Pegawai</a></li>
             <!-- <li><a class="treeview-item" href="ui-cards.html"><i class="icon fa fa-circle-o"></i> Cards</a></li> --}}
             {{-- <li><a class="treeview-item" href="widgets.html"><i class="icon fa fa-circle-o"></i> Widgets</a></li> --> --}}
@@ -79,8 +79,8 @@
 
         <!-- <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-th-list"></i><span class="app-menu__label">Data Referensi</span><i class="treeview-indicator fa fa-angle-right"></i></a> -->
           <ul class="treeview-menu">
-            <li><a class="treeview-item" href="{{route('keluarga')}}"><i class="icon fa fa-circle-o"></i> Keluarga</a></li>
-            <li><a class="treeview-item" href="{{route('pendidikan')}}"><i class="icon fa fa-circle-o"></i> Pendidikan</a></li>
+            <li><a class="treeview-item" href="{{route('admin/keluarga')}}"><i class="icon fa fa-circle-o"></i> Keluarga</a></li>
+            <li><a class="treeview-item" href="{{route('admin/pendidikan')}}"><i class="icon fa fa-circle-o"></i> Pendidikan</a></li>
           </ul>
         </li>
         <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-file-text"></i><span class="app-menu__label">Rekap Data</span><i class="treeview-indicator fa fa-angle-right"></i></a>
@@ -91,8 +91,8 @@
             <li><a class="treeview-item" href="{{route('surat')}}"><i class="icon fa fa-circle-o"></i> Surat Menyurat</a></li>
           </ul>
         </li>
-        <li><a class="app-menu__item @yield('admin')" href="{{route('admin_index')}}"><i class="app-menu__icon fa fa-dashboard"></i><span class="app-menu__label">User</span></a></li>
-        <li><a class="app-menu__item @yield('admin')" href="{{route('login')}}"><i class="left__icon "></i><span class="fa fa-sign-in fa-lg fa-fw">logout</span></a></li>
+        <li><a class="app-menu__item @yield('admin')" href="{{route('admin/user')}}"><i class="app-menu__icon fa fa-dashboard"></i><span class="app-menu__label">User</span></a></li>
+        <li><a class="app-menu__item @yield('admin')" href="{{route('admin/login')}}"><i class="left__icon "></i><span class="fa fa-sign-in fa-lg fa-fw">logout</span></a></li>
     </ul>
     </aside>
     @yield('content')

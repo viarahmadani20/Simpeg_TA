@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSurat extends Migration
+class AddSebagaiToUsersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,9 @@ class CreateSurat extends Migration
      */
     public function up()
     {
-        Schema::create('surat', function (Blueprint $table) {
-            $table->id();
-            $table->string('nama_surat');
-            $table->timestamps();
+        Schema::table('users', function (Blueprint $table) {
+            $table->string('sebagai')->after('password');
+            //
         });
     }
 
@@ -27,6 +26,8 @@ class CreateSurat extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('surat');
+        Schema::table('users', function (Blueprint $table) {
+            //
+        });
     }
 }

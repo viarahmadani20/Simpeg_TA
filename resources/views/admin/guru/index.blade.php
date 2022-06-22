@@ -45,7 +45,7 @@ active
                       <td>via11</td>
                       <td>via11</td>
                       <td>
-                        <a href="{{route('pegawai/index')}}"
+                        <a href="3"
                         class="btn btn-info"><span class="fa fa-edit (alias)"></span></a>
 
                       </td>
