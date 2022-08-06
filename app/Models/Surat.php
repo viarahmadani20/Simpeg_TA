@@ -9,8 +9,19 @@ use Illuminate\Database\Eloquent\Model;
 class Surat extends Model
 {
     protected $table ='surat';
-    protected $primarykey = 'id';
-    protected $guarded = ['id'];
+    protected $primaryKey = 'id_surat';
+    protected $fillable = [
+        'nama_surat',
+        'keterangan'
+    ];
+
+    public function pengguna(){
+        return $this->belongsTo(
+            User::class,
+            'id_user',
+            'id'
+        );
+    }
 
 
 }

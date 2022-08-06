@@ -49,13 +49,37 @@ active
                       </div> --}}
                       <td>
                         <a href="{{route('admin/edit', $jabatan->id)}}"class="btn btn-info"><span class="fa fa-edit (alias)"> Edit</span></a></td>
-                      <td><form action="{{route("admin/jabatan/hapus", $jabatan->id)}}">
-                        <button class="btn btn-danger" type="submit" ><span class="fa fa-trash"> Hapus</span></button>
+                      <td> <button class="btn btn-danger" data-toggle="modal"
+                        data-target="#konfirmasiHapus{{$jabatan->id}}"><span class="fa fa-trash">
+                            Hapus</span></button>
+                        {{-- <form action="{{route("admin/jabatan/hapus", $jabatan->id)}}">
+                        <button class="btn btn-danger" type="submit" ><span class="fa fa-trash"> Hapus</span></button> --}}
                         </form>
                       </td>
                     </tr>
 
                   </tbody>
+                  <div class="modal" tabindex="-1" role="dialog" id="konfirmasiHapus{{$jabatan->id}}">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Konfirmasi Hapus</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <p>Apakah Anda yakin ingin menghapus?</p>
+                            </div>
+                            <div class="modal-footer">
+                                <form action="{{ route('admin/jabatan/hapus', $jabatan->id) }}">
+                                    <button class="btn btn-danger" type="submit"><span class="fa fa-trash"> Hapus</span></button>
+                                </form>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Tidak</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                   @endforeach
                 </table>
 

@@ -23,7 +23,9 @@ class KeluargaController extends Controller
 
     public function simpan_keluarga(Request $request){
         $keluarga = Keluarga::create([
-            'nama_keluarga' =>$request->nama_keluarga
+            'kodes' =>$request->kodes,
+            'nama_keluarga' =>$request->nama_keluarga,
+            'jmlhanak' =>$request->jmlhanak
         ]);
         return redirect()->route('admin/keluarga');
 
@@ -50,7 +52,9 @@ public function editt($id)
 public function save_edit (Request $request, $id)
 {
 $keluarga = Keluarga::find($id);
+$keluarga->kodes = $request ->kodes;
 $keluarga->nama_keluarga = $request ->nama_keluarga;
+$keluarga->jmlhanak = $request ->jmlhanak;
 $keluarga->save();
 
 return redirect('admin/keluarga')->with('update','Data Berhasil Di Update');

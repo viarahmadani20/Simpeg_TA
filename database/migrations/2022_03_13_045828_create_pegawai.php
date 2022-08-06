@@ -22,6 +22,7 @@ class CreatePegawai extends Migration
             $table->string('jenis_kelamin');
             $table->string('alamat');
             $table->integer('id_agama')->nullable();
+            $table->integer('id_pendidikan')->nullable();
             $table->integer('id_golongan')->nullable();
             $table->integer('id_status')->nullable();
             $table->string('foto');

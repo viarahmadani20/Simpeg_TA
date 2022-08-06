@@ -11,13 +11,32 @@ class CreateSurat extends Migration
      *
      * @return void
      */
-    public function up()
-    {
-        Schema::create('surat', function (Blueprint $table) {
-            $table->id();
+    // public function up()
+    // {
+    //     Schema::create('surat', function (Blueprint $table) {
+    //         $table->id();
+    //         $table->foreignId('id_surat');
+    //         $table->string('nama_surat');
+    //         $table->timestamps();
+    //     });
+    // }
+
+    public function up(){
+        Schema::create('surat', function(Blueprint $table){
+            $table->bigIncrements('id_surat');
+            $table->ForeignId('id_user')->nullable();
             $table->string('nama_surat');
+            $table->text('keterangan');
+            $table->string('file_surat')->nullable();
+            $table->enum('status', [
+                'BelumVerifikasi',
+                'Diverifikasi',
+                'Ditolak'
+            ])->default('BelumVerifikasi');
             $table->timestamps();
+
         });
+
     }
 
     /**

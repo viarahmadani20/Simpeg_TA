@@ -27,19 +27,25 @@ active
             <!-- <h3 class="tile-title">Register</h3> -->
             <div class="tile-body">
               <!-- <form class="form-horizontal" action="#" method="post"> -->
-              <form class="form-horizontal" action="{{url('/admin/pegawai')}}" method="post" action="{{route('admin/simpan_pegawai')}}">
+              <form class="form-horizontal" method="post" action="{{route('admin/simpan_pegawai')}}" enctype="multipart/form-data">
                 <div class="form-group row">
                     @csrf
-                  <label class="control-label col-md-3">NIP</label>
-                  <div class="col-md-8">
+                    <label class="control-label col-md-3">Nama User</label>
+                    <div class="col-md-8">
+                        <input type="text" name="name" class="form-controller">
+                    </div>
+                    <label class="control-label col-md-3">Email</label>
+                    <div class="col-md-8">
+                        <input type="email" name="email" class="form-controller">
+                    </div>
+                    <label class="control-label col-md-3">Password</label>
+                    <div class="col-md-8">
+                        <input type="password" name="password" class="form-controller">
+                    </div>
+                  <label class="control-label col-md-3">NUPTK</label>
+                <div class="col-md-8">
                     <input class="form-control col-md-8" type="text" name="nip">
-                  </div>
                 </div>
-                <div class="form-group row">
-                  <label class="control-label col-md-3">Nama</label>
-                  <div class="col-md-8">
-                    <input class="form-control" type="text" name="namap">
-                  </div>
                 </div>
                 <div class="form-group row">
                   <label class="control-label col-md-3">Tempat Lahir</label>
@@ -79,42 +85,33 @@ active
                     <div class="col-md-8">
                         <select class="form-control" name="agama" id="exampleSelect1">
                             @foreach ( $daftar_agama as $agama)
-
                             <option value="{{$agama->id}}" selected="">{{$agama->nama_agama}}</option>
-
                             @endforeach
-
                         </select>
                     </div>
                 </div>
-
-                {{-- <div class="form-group row">
-                  <label class="control-label col-md-3">Kewarganegaraan</label>
-                    <div class="col-md-8">
-                        <select class="form-control" name="negara_id" id="exampleSelect1">
-
-                            <option value="#">Indonesia</option>
-
-                        </select>
-                    </div>
-                </div> --}}
-
                 <div class="form-group row">
-                  <label class="control-label col-md-3">Golongan</label>
+                    <label class="control-label col-md-3">Pendidikan</label>
+                      <div class="col-md-8">
+                          <select class="form-control" name="pendidikan" id="exampleSelect1">
+                              @foreach ( $daftar_pendidikan as $pendidikan)
+                              <option value="{{$pendidikan->id_pendidikan}}" selected="">{{$pendidikan->nama_pendidikan}}</option>
+                              @endforeach
+                          </select>
+                      </div>
+                  </div>
+                <div class="form-group row">
+                  <label class="control-label col-md-3">Pangkat/Golongan</label>
                     <div class="col-md-8">
                         <select class="form-control" name="golongan" id="exampleSelect1">
-
                             @foreach ( $daftar_golongan as $golongan)
-
                             <option value="{{$golongan->id}}" selected="">{{$golongan->nama_golongan}}</option>
-
                             @endforeach
-
                         </select>
                     </div>
                 </div>
                 <div class="form-group row">
-                  <label class="control-label col-md-3">Status</label>
+                  <label class="control-label col-md-3">Status Pernikahan</label>
                     <div class="col-md-8">
                         <select class="form-control" name="status" id="exampleSelect1">
 
@@ -145,7 +142,7 @@ active
               <div class="row">
               <div class="col-md-8 col-md-offset-3">
                   <button class="btn btn-primary" type="submit"><i class="fa fa-fw fa-lg fa-check-circle"></i>Tambah</button>
-                  <a class="btn btn-secondary" href="admin/pegawai"><i class="fa fa-fw fa-lg fa-times-circle"></i>Kembali</a>
+                  <a class="btn btn-secondary" href="{{ route('admin/pegawai/index') }}"><i class="fa fa-fw fa-lg fa-times-circle"></i>Kembali</a>
                 </div>
 
               </div>

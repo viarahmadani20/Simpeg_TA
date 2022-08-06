@@ -10,14 +10,14 @@ active
 <main class="app-content">
       <div class="app-title">
         <div>
-          <h1><i class="fa fa-edit"></i> Edit Golongan</h1>
+          <h1><i class="fa fa-edit"></i> Edit Pangkat/Golongan</h1>
           <!-- <p>Sample forms</p> -->
         </div>
         <ul class="app-breadcrumb breadcrumb">
           <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
           <li class="breadcrumb-item">Tabel Master</li>
-          <li class="breadcrumb-item"><a href="/admin/golongan">Golongan</a></li>
-          <li class="breadcrumb-item"><a href="#">Edit Golongan</a></li>
+          <li class="breadcrumb-item"><a href="/admin/golongan">Pangkat/Golongan</a></li>
+          <li class="breadcrumb-item"><a href="#">Edit Pangkat/Golongan</a></li>
         </ul>
       </div>
 
@@ -28,7 +28,7 @@ active
               <form class="form-horizontal" method="post" action="{{route('admin/gol_edit', $golongan->id)}}" >
                 <div class="form-group row">
                     @csrf
-                  <label class="control-label col-md-3">Nama Jabatan</label>
+                  <label class="control-label col-md-3">Nama Pangkat/Golongan</label>
                   <div class="col-md-8">
                     <input type="text" class="form-control-md-8" value="{{$golongan->nama_golongan}}" name="nama_golongan">
                   </div>

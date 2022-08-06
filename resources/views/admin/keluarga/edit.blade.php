@@ -10,7 +10,7 @@ active
 <main class="app-content">
       <div class="app-title">
         <div>
-          <h1><i class="fa fa-edit"></i> Edit Keluarga</h1>
+          <h1><i class="fa fa-edit"></i> Edit Status Keluarga</h1>
           <!-- <p>Sample forms</p> -->
         </div>
         <ul class="app-breadcrumb breadcrumb">
@@ -29,10 +29,19 @@ active
               <form class="form-horizontal" method="post" action="{{route('admin/save_edit', $keluarga->id)}}" >
                 <div class="form-group row">
                     @csrf
+                  <label class="control-label col-md-3">Kode</label>
+                  <div class="col-md-8">
+                    <input type="text" class="form-control-md-8" value="{{$keluarga->kodes}}" name="kodes">
+                  </div>
                   <label class="control-label col-md-3">Status</label>
                   <div class="col-md-8">
                     <input type="text" class="form-control-md-8" value="{{$keluarga->nama_keluarga}}" name="nama_keluarga">
                   </div>
+                  <label class="control-label col-md-3">Jumlah Anaka</label>
+                  <div class="col-md-8">
+                    <input type="no" class="form-control-md-8" value="{{$keluarga->jmlhanak}}" name="jmlhanak">
+                  </div>
+
 
               </div>
 

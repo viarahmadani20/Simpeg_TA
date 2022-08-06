@@ -15,7 +15,9 @@ class CreateKeluarga extends Migration
     {
         Schema::create('keluarga', function (Blueprint $table) {
             $table->id();
+            $table->string('kodes');
             $table->string('nama_keluarga');
+            $table->integer('jmlhanak');
             $table->timestamps();
         });
     }

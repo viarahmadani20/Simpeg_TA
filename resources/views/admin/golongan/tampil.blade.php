@@ -15,7 +15,7 @@ active
         <ul class="app-breadcrumb breadcrumb">
           <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
           <li class="breadcrumb-item">Tabel Master</li>
-          <li class="breadcrumb-item"><a href="#">Golongan </a></li>
+          <li class="breadcrumb-item"><a href="#">Pangkat/Golongan </a></li>
         </ul>
       </div>
       <!-- Buttons-->
@@ -26,13 +26,13 @@ active
               <!-- <h2 class="mb-3 line-head" id="buttons">Data Pegawai</h2> -->
               <div class="form-group col-md 8">
               <a href="{{route('admin/golongan/add')}}"
-              class="btn btn-primary"><span class="fa fa-plus"> Tambah Golongan </span></a>
+              class="btn btn-primary"><span class="fa fa-plus"> Tambah Pangkat/Golongan </span></a>
               </div>
                 <table class="table table-hover">
                   <thead>
                     <tr>
                         <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="No: activate to sort column ascending" style="width: 91.0625px;" >No</th>
-                        <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="nama_golongan: activate to sort column ascending" style="width: 91.0625px;" >Nama Golongan</th>
+                        <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="nama_golongan: activate to sort column ascending"  >Nama Pangkat/Golongan</th>
                         <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="operasi: activate to sort column ascending" style="width: 91.0625px;" >Operasi</th>
                     </tr>
                   </thead>
@@ -43,13 +43,37 @@ active
                         <td class="sorting_1" >{{$no_golongan+1}}</td>
                         <td>{{$golongan->nama_golongan}}</td>
                         <td><a href="{{route('admin/editgl', $golongan->id)}}"class="btn btn-info"><span class="fa fa-edit (alias)"> Edit</span></a></td>
-                        <td><form action="{{route('admin/golongan/hapus', $golongan->id)}}" >
-                          <button class="btn btn-danger" type="submit" ><span class="fa fa-trash"> Hapus</span></button>
+                        <td> <button class="btn btn-danger" data-toggle="modal"
+                            data-target="#konfirmasiHapus{{$golongan->id}}"><span class="fa fa-trash">
+                                Hapus</span></button>
+                            {{-- <form action="{{route('admin/golongan/hapus', $golongan->id)}}" >
+                          <button class="btn btn-danger" type="submit" ><span class="fa fa-trash"> Hapus</span></button> --}}
                         </td>
                         </form>
                     </tr>
 
                   </tbody>
+                  <div class="modal" tabindex="-1" role="dialog" id="konfirmasiHapus{{$golongan->id}}">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Konfirmasi Hapus</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <p>Apakah Anda yakin ingin menghapus data golongan?</p>
+                            </div>
+                            <div class="modal-footer">
+                                <form action="{{ route('admin/golongan/hapus', $golongan->id) }}">
+                                    <button class="btn btn-danger" type="submit"><span class="fa fa-trash"> Hapus</span></button>
+                                </form>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Tidak</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                   @endforeach
                 </table>
 

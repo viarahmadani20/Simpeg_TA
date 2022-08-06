@@ -24,14 +24,14 @@
   </head>
   <body class="app sidebar-mini rtl">
     <!-- Navbar-->
-    <header class="app-header"><a class="app-header__logo" href="index.html">Kepegawaian </a>
+    <header class="app-header"><a class="app-header__logo" href="index.html">Guru </a>
       <!-- Sidebar toggle button--><a class="app-sidebar__toggle" href="#" data-toggle="sidebar" aria-label="Hide Sidebar"></a>
       <!-- Navbar Right Menu-->
       <ul class="app-nav">
-        <li class="app-search">
+        {{-- <li class="app-search">
           <input class="app-search__input" type="search" placeholder="Search">
           <button class="app-search__button"><i class="fa fa-search"></i></button>
-        </li>
+        </li> --}}
         <!-- User Menu-->
         <li class="dropdown"><a class="app-nav__item" href="#" data-toggle="dropdown" aria-label="Open Profile Menu"><i class="fa fa-user fa-lg"></i></a>
           <ul class="dropdown-menu settings-menu dropdown-menu-right">
@@ -57,14 +57,16 @@
       <ul class="app-menu">
         <li><a class="app-menu__item @yield('dashboard')" href="{{route('admin/pegawai/tampil')}}"><i class="app-menu__icon fa fa-dashboard"></i><span class="app-menu__label">Dashboard</span></a></li>
 
-        <li class="treeview"><a class="app-menu__item @yield('pegawai')" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-laptop"></i><span class="app-menu__label">Pegawai</span><i class="treeview-indicator fa fa-angle-right"></i></a>
-          <ul class="treeview-menu">
-            <li><a class="treeview-item" href="{{route('admin/pegawai/index')}}"><i class="icon fa fa-circle-o"></i> Data Guru</a></li>
+        <li><a class="treeview-item" href="{{route('profil')}}"><i class="app-menu__icon fa fa-file-text"></i> Profil </a></li>
+        <li><a class="treeview-item" href="{{route('gajip')}}"><i class="app-menu__icon fa fa-file-text"></i> Slip Gaji</a></li>
+
+        {{-- <li class="treeview"><a class="app-menu__item @yield('guru/guru')" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-laptop"></i><span class="app-menu__label">Pegawai</span><i class="treeview-indicator fa fa-angle-right"></i></a>
+          <ul class="treeview-menu"> --}}
             {{-- <li><a class="treeview-item" href="#" target="" rel="noopener"><i class="icon fa fa-circle-o"></i> Tambah Pegawai</a></li>
             <!-- <li><a class="treeview-item" href="ui-cards.html"><i class="icon fa fa-circle-o"></i> Cards</a></li> --}}
             {{-- <li><a class="treeview-item" href="widgets.html"><i class="icon fa fa-circle-o"></i> Widgets</a></li> --> --}}
-          </ul>
-        </li>
+          {{-- </ul>
+        </li> --}}
         {{-- <li><a class="app-menu__item @yield('chart')" href="#"><i class="app-menu__icon fa fa-pie-chart"></i><span class="app-menu__label">Charts</span></a></li> --}}
 
         <!-- <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-th-list"></i><span class="app-menu__label">Data Referensi</span><i class="treeview-indicator fa fa-angle-right"></i></a> -->
@@ -75,14 +77,14 @@
         </li>
         <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-file-text"></i><span class="app-menu__label">Kebutuhan</span><i class="treeview-indicator fa fa-angle-right"></i></a>
           <ul class="treeview-menu">
-            <li><a class="treeview-item" href="{{route('laporan')}}"><i class="icon fa fa-circle-o"></i> Laporan</a></li>
+            <li><a class="treeview-item" href="{{route('guru/laporan')}}"><i class="icon fa fa-circle-o"></i> Laporan</a></li>
           </ul>
           <ul class="treeview-menu">
-            <li><a class="treeview-item" href="{{route('surat')}}"><i class="icon fa fa-circle-o"></i> Surat Menyurat</a></li>
+            <li><a class="treeview-item" href="{{route('guru/surat')}}"><i class="icon fa fa-circle-o"></i> Surat Menyurat</a></li>
           </ul>
         </li>
         {{-- <li><a class="app-menu__item @yield('admin')" href="{{route('admin/user')}}"><i class="app-menu__icon fa fa-dashboard"></i><span class="app-menu__label">User</span></a></li> --}}
-        <li><a class="app-menu__item @yield('admin')" href="{{route('admin/login')}}"><i class="left__icon "></i><span class="fa fa-sign-in fa-lg fa-fw">logout</span></a></li>
+        <li><a class="app-menu__item @yield('admin')" href="{{route('logout')}}"><i class="left__icon "></i><span class="fa fa-sign-in fa-lg fa-fw">logout</span></a></li>
     </ul>
     </aside>
     @yield('content')

@@ -1,53 +1,74 @@
 @extends('app')
 @section('title')
-Dashboard
+    Dashboard
 @endsection
 @section('dashboard')
-active
+    active
 @endsection
 @section('content')
     <main class="app-content">
-      <div class="app-title">
-        <div>
-          <h1><i class="fa fa-dashboard"></i> Simpeg Dashboard</h1>
-          <p>Dashboard Sistem Kepegawaian</p>
-        </div>
-        <ul class="app-breadcrumb breadcrumb">
-          <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
-          <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
-        </ul>
-      </div>
-      <div class="row">
-        <div class="col-md-6 col-lg-3">
-          <div class="widget-small primary coloured-icon"><i class="icon fa fa-users fa-3x"></i>
-            <div class="info">
-              <h4>Users</h4>
-              <p><b>1</b></p>
+        <div class="app-title">
+            <div>
+                <h1><i class="fa fa-dashboard"></i> Simpeg Dashboard</h1>
+                <p>Dashboard Sistem Kepegawaian</p>
             </div>
-          </div>
+            <ul class="app-breadcrumb breadcrumb">
+                <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
+                <li class="breadcrumb-item"><a href="admin/pegawai/tampil">Dashboard</a></li>
+            </ul>
         </div>
-        <div class="col-md-6 col-lg-3"><a href="#">
-          <div class="widget-small info coloured-icon"><i class="icon fa fa-edit fa-3x"></i>
-            <div class="info"></a>
-              <h4>Data Admin</h4>
+        <div class="row">
+            <div class="col-xl-3 col-md-6 mb-4">
+                <div class="card border-left-primary shadow h-100 py-2">
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Data User</div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">{{$user}}</div>
+                            </div>
+                            <div class="col-auto">
+                                <i class="fa-solid fa-people-group"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
+
+            <div class="col-xl-3 col-md-6 mb-4">
+                <div class="card border-left-primary shadow h-100 py-2">
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Data Surat</div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">{{$surat}}</div>
+                            </div>
+                            <div class="col-auto">
+                                <i class="fa-solid fa-people-group"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xl-3 col-md-6 mb-4">
+                <div class="card border-left-primary shadow h-100 py-2">
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Data Laporan</div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">{{$laporan}}</div>
+                            </div>
+                            <div class="col-auto">
+                                <i class="fa-solid fa-people-group"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
-        <div class="col-md-6 col-lg-3"><a href="#">
-          <div class="widget-small warning coloured-icon"><i class="icon fa fa-files-o fa-3x"></i>
-            <div class="info"></a>
-              <h4>Data Pegawai</h4>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-3"><a href="#">
-            <div class="widget-small warning coloured-icon"><i class="icon fa fa-files-o fa-3x"></i>
-              <div class="info"></a>
-                <h4>Data Dosen</h4>
-              </div>
-            </div>
-          </div>
-      </div>
+
+
 
     </main>
 @endsection

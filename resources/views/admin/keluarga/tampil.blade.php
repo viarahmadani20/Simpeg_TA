@@ -31,24 +31,52 @@ active
                 <table class="table table-hover">
                   <thead>
                     <tr role="row">
-                        <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="No: activate to sort column ascending" style="width: 91.0625px;" >No</th>
-                        <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="nama_keluarga: activate to sort column ascending" style="width: 91.0625px;" >Keluarga</th>
-                        <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="operasi: activate to sort column ascending" style="width: 91.0625px;" >Operasi</th>
+                        <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="No: activate to sort column ascending" >No</th>
+                        <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="kodes: activate to sort column ascending"  >Kode</th>
+                        <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="nama_keluarga: activate to sort column ascending"  >Status Pernikahan</th>
+                        <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="jmlhanak: activate to sort column ascending"  >Anak</th>
+                        <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="operasi: activate to sort column ascending"  >Operasi</th>
                       </tr>
                   </thead>
                   @foreach ( $daftar_keluarga as $no_keluarga=>$keluarga )
                   <tbody>
                     <tr>
                       <td class = "sorting_1">{{$no_keluarga+1}}</td>
+                      <td>{{$keluarga->kodes}}</td>
                       <td>{{$keluarga->nama_keluarga}}</td>
+                      <td>{{$keluarga->jmlhanak}}</td>
                       <td><a href="{{route('admin/editt', $keluarga->id)}}"class="btn btn-info"><span class="fa fa-edit (alias)"> Edit</span></a></td>
-                      <td><form action="{{route("admin/keluarga/hapus", $keluarga->id)}}"><button class="btn btn-danger" type="submit" ><span class="fa fa-trash"> Hapus</span></button>
-                        </form>
+                      <td> <button class="btn btn-danger" data-toggle="modal"
+                        data-target="#konfirmasiHapus{{$keluarga->id}}"><span class="fa fa-trash">
+                            Hapus</span></button>
+                        {{-- <form action="{{route("admin/keluarga/hapus", $keluarga->id)}}"><button class="btn btn-danger" type="submit" ><span class="fa fa-trash"> Hapus</span></button>
+                        </form> --}}
                       </td>
 
 
                     </tr>
                   </tbody>
+                  <div class="modal" tabindex="-1" role="dialog" id="konfirmasiHapus{{$keluarga->id}}">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Konfirmasi Hapus</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <p>Apakah Anda yakin ingin menghapus data Keluarga?</p>
+                            </div>
+                            <div class="modal-footer">
+                                <form action="{{ route('admin/keluarga/hapus', $keluarga->id) }}">
+                                    <button class="btn btn-danger" type="submit"><span class="fa fa-trash"> Hapus</span></button>
+                                </form>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Tidak</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                   @endforeach
                 </table>
 

@@ -12,11 +12,7 @@ active
           <h1><i class="fa fa-laptop"></i> Data Pegawai</h1>
           <!-- <p>Bootstrap Components</p> -->
         </div>
-        <ul class="app-breadcrumb breadcrumb">
-          <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
-          <li class="breadcrumb-item">Pegawai</li>
-          <li class="breadcrumb-item"><a href="3">Data Pegawai</a></li>
-        </ul>
+
       </div>
 
       <!-- Buttons-->
@@ -49,9 +45,9 @@ active
                   <tbody>
                     <tr>
                       <td class="sorting_1">{{$no_pegawai+1}}</td>
-                      <td><img src="#" alt="" width="50px" height="50px"></td>
+                      <td><img src="{{asset($pegawai->foto)}}" alt="" width="50px" height="50px"></td>
                       <td>{{$pegawai->nip}}</td>
-                      <td><a href="{{route('admin/pegawai/show', $pegawai->id)}}">{{$pegawai->namap}}</a></td>
+                      <td><a href="{{route('admin/pegawai/show', $pegawai->id)}}">{{$pegawai->name}}</a></td>
                       <td>{{$pegawai->tempat_lahir}}, {{$pegawai->tanggal_lahir}}</td>
                       <td>{{$pegawai->jenis_kelamin}}</td>
                       <td>{{$pegawai->no_hp}}</td>
@@ -59,11 +55,36 @@ active
                         <a href="{{route('admin/editpg', $pegawai->id)}}"
                         class="btn btn-info"><span class="fa fa-edit (alias)">Edit</span></a>
                       </td>
-                      <td>
-                        <form action="{{route('admin/pegawai/hapus', $pegawai->id)}}"><button class="btn btn-danger" type="submit" ><span class="fa fa-trash">Hapus</span></button></form>
+                      <td> <button class="btn btn-danger" data-toggle="modal"
+                        data-target="#konfirmasiHapus{{$pegawai->id}}"><span class="fa fa-trash">
+                            Hapus</span></button>
+                        {{-- <form action="{{route('admin/pegawai/hapus', $pegawai->id)}}"><button class="btn btn-danger" type="submit" ><span class="fa fa-trash">Hapus</span></button></form> --}}
                       </td>
                     </tr>
                   </tbody>
+
+                  <div class="modal" tabindex="-1" role="dialog" id="konfirmasiHapus{{$pegawai->id}}">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Konfirmasi Hapus</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <p>Apakah Anda yakin ingin menghapus data Pegawai?</p>
+                            </div>
+                            <div class="modal-footer">
+                                <form action="{{ route('admin/pegawai/hapus', $pegawai->id) }}">
+                                    <button class="btn btn-danger" type="submit"><span class="fa fa-trash"> Hapus</span></button>
+                                </form>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Tidak</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                     @endforeach
                 </table>
             </div>

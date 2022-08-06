@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\Agama;
 use App\Models\Golongan;
 use App\Models\Keluarga;
+use App\Models\pendidikan;
 
 class Pegawai extends Model
 {
@@ -38,6 +39,15 @@ class Pegawai extends Model
             Keluarga::class,
             'id_status',
             'id'
+        );
+    }
+
+    public function pendidikan(){
+
+        return $this->belongsTo(
+            Pendidikan::class,
+            'id_pendidikan',
+            'id_pendidikan'
         );
     }
 

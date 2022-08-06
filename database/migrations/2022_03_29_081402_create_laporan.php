@@ -14,9 +14,15 @@ class CreateLaporan extends Migration
     public function up()
     {
         Schema::create('laporan', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id_lap');
+            $table->foreignId('id_user')->nullable();
             $table->string('nama_laporan');
-            $table->string('file');
+            $table->string('file')->nullable();
+            $table->enum('status', [
+                'BelumDiterima',
+                'Diterima',
+                'Ditolak'
+            ])->default('BelumDiterima');
             $table->timestamps();
         });
     }

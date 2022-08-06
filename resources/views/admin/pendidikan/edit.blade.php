@@ -26,7 +26,7 @@ active
         <div class="col-md-12">
           <div class="tile">
             <div class="tile-body">
-              <form class="form-horizontal"  method="post" action="{{ route('admin/simpan_editp', $pendidikan->id)}}">
+              <form class="form-horizontal"  method="post" action="{{ route('admin/simpan_editp', $pendidikan->id_pendidikan)}}">
                 <div class="form-group row">
                     @csrf
                   <label class="control-label col-md-3">Tahun Pendidikan</label>

@@ -30,9 +30,17 @@ active
               <form class="form-horizontal" action="{{url('/admin/keluarga')}}" method="post" action="{{ route('admin/simpan_keluarga')}}">
                 <div class="form-group row">
                     @csrf
-                  <label class="control-label col-md-3">Status</label>
+                  <label class="control-label col-md-3">Kode</label>
+                  <div class="col-md-8">
+                    <input class="form-control col-md-8" type="text" name="kodes">
+                  </div>
+                  <label class="control-label col-md-3">Status Pernikahan</label>
                   <div class="col-md-8">
                     <input class="form-control col-md-8" type="text" name="nama_keluarga">
+                  </div>
+                  <label class="control-label col-md-3">Jumlah Anak</label>
+                  <div class="col-md-8">
+                    <input class="form-control col-md-8" type="no" name="jmlhanak">
                   </div>
                 </div>
 

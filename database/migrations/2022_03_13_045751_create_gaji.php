@@ -14,8 +14,23 @@ class CreateGaji extends Migration
     public function up()
     {
         Schema::create('gaji', function (Blueprint $table) {
-            $table->id();
-            $table->string('jmlhgaji');
+            $table->bigInteger('id_gaji');
+            $table->foreignId('id_user')->nullable();
+            $table->date('bulan');
+            $table->string('gaji_pkk');
+            $table->string('tunjangan_umum');
+            $table->string('tmb_tunjangan_umum');
+            $table->string('tunjangan_struk');
+            $table->string('tunjangan_fungsi');
+            $table->string('tunjangan_beras');
+            $table->string('tunjangan_pph');
+            $table->string('potongan_bpjs');
+            $table->string('potongan_pensiun');
+            $table->string('potongan_ll');
+            $table->string('potongan_beras');
+            $table->string('potongan_cp');
+            $table->string('potongan_pph');
+            $table->string('gaji_diterima');
             $table->timestamps();
         });
     }
