@@ -88,7 +88,9 @@
                                 <div class="col-md-8">
                                     <select class="form-control" name="id_agama" id="exampleSelect1">
                                         @foreach ($daftar_agama as $agama)
-                                            <option value="{{ $agama->id }}">{{ $agama->nama_agama }}</option>
+                                            <option value="{{ $agama->id }}"
+                                                {{ $agama->id == $pegawai->id_agama ? 'selected' : '' }}>
+                                                {{ $agama->nama_agama }}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -98,7 +100,8 @@
                                 <div class="col-md-8">
                                     <select class="form-control" name="id_pendidikan" id="exampleSelect1">
                                         @foreach ($daftar_pendidikan as $pendidikan)
-                                            <option value="{{ $pendidikan->id_pendidikan }}">
+                                            <option value="{{ $pendidikan->id_pendidikan }}"
+                                                {{ $pendidikan->id_pendidikan == $pegawai->id_pendidikan ? 'selected' : '' }}>
                                                 {{ $pendidikan->nama_pendidikan }}</option>
                                         @endforeach
                                     </select>
@@ -109,7 +112,10 @@
                                 <div class="col-md-8">
                                     <select class="form-control" name="id_golongan" id="exampleSelect1">
                                         @foreach ($daftar_golongan as $golongan)
-                                            <option value="{{ $golongan->id }}">{{ $golongan->nama_golongan }}</option>
+                                            <option value="{{ $golongan->id }}"
+                                                {{ $golongan->id == $pegawai->id_golongan ? 'selected' : '' }}>
+                                                {{ $golongan->nama_golongan }}
+                                            </option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -119,7 +125,10 @@
                                 <div class="col-md-8">
                                     <select class="form-control" name="id_status" id="exampleSelect1">
                                         @foreach ($daftar_keluarga as $keluarga)
-                                            <option value="{{ $keluarga->id }}">{{ $keluarga->nama_keluarga }}</option>
+                                            <option value="{{ $keluarga->id }}"
+                                                {{ $keluarga->id == $pegawai->id_status ? 'selected' : '' }}>
+                                                {{ $keluarga->nama_keluarga }}
+                                            </option>
                                         @endforeach
                                     </select>
                                 </div>

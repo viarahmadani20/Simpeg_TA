@@ -34,7 +34,7 @@ active
                         <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="nama_laporan: activate to sort column ascending" style="width: 91.0625px;" > Tema Laporan</th>
                         <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="file: activate to sort column ascending" style="width: 91.0625px;" > Dokumen</th>
                         <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="file: activate to sort column ascending" style="width: 91.0625px;" > Status</th>
-                        <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="operasi: activate to sort column ascending" style="width: 91.0625px;" >Operasi</th>
+                        <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="operasi: activate to sort column ascending" style="width: 91.0625px;" ></th>
                     </tr>
                   </thead>
 
@@ -52,10 +52,10 @@ active
                         @endif
                       </td>
                       <td>{{$laporan->status}}</td>
-                      <td><a href=""class="btn btn-info d-inline-block"><span class="fa fa-edit (alias)"> Edit</span></a>
+                      {{-- <td><a href=""class="btn btn-info d-inline-block"><span class="fa fa-edit (alias)"> Edit</span></a>
                           {{-- {{-- <form action="{{route('pegawai/hapus', $laporan->id)}}" class="d-inline-block" ><button class="btn btn-danger" type="submit" ><span class="fa fa-trash"> Hapus</span></button>
                         </form> --}}
-                      </td>
+                      {{-- </td> --}}
                     </tr>
                     </tbody>
                     @endforeach

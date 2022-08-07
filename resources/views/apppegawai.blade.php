@@ -55,7 +55,7 @@
         </div>
       </div>
       <ul class="app-menu">
-        <li><a class="app-menu__item @yield('dashboard')" href="{{route('admin/pegawai/tampil')}}"><i class="app-menu__icon fa fa-dashboard"></i><span class="app-menu__label">Dashboard</span></a></li>
+        <li><a class="app-menu__item @yield('dashboard')" href="{{route('pegawai/dashboard')}}"><i class="app-menu__icon fa fa-dashboard"></i><span class="app-menu__label">Dashboard</span></a></li>
 
         <li><a class="treeview-item" href="{{route('profil')}}"><i class="app-menu__icon fa fa-file-text"></i> Profil</a></li>
         <li><a class="treeview-item" href="{{route('gajip')}}"><i class="app-menu__icon fa fa-file-text"></i>Slip Gaji</a></li>

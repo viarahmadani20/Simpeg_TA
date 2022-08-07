@@ -36,7 +36,7 @@
                                     <th> Keterangan</th>
                                     <th> Status</th>
                                     <th> File Surat</th>
-                                    <th>Operasi</th>
+                                    <th></th>
                                 </tr>
                             </thead>
                             @foreach ($daftar_surat as $no_surat => $surat)

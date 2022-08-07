@@ -81,12 +81,12 @@ class LoginController extends Controller
 
             } else if ($user->hasRole('guru')){
 
-                return redirect()->route('admin/guru/tampil');
+                return redirect()->route('guru/dashboard');
 
             }
             else if($user->hasRole('pegawai')) {
 
-                return redirect()->route('admin/pegawai/tampil');
+                return redirect()->route('pegawai/dashboard');
             }
 
         }

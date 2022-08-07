@@ -32,16 +32,18 @@ Route::get('/', function () {
 
 Route::get('/guru', function () {
     return view('appguru');
-})->name('admin/guru/tampil');
+})->name('guru/dashboard');
 
 Route::get('/pegawai', function () {
     return view('apppegawai');
-})->name('admin/pegawai/tampil');
+})->name('pegawai/dashboard');
 
 // Route::middleware('auth')->group(function () {
 
 
 Route::get('admin/tampil', [PegawaiController::class, 'tampil'])->name('admin/dashboard');
+Route::get('guru/index', [PegawaiController::class, 'dashboardg'])->name('guru/dashboard');
+Route::get('pegawai/index', [PegawaiController::class, 'dashboardp'])->name('pegawai/dashboard');
 // });
 
 Route::middleware(['role:pegawai'])->group(function () {

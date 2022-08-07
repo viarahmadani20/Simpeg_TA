@@ -1,4 +1,4 @@
-@extends('apppegawai')
+@extends('appguru')
 @section('title')
     Dashboard
 @endsection

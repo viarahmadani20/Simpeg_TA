@@ -71,7 +71,7 @@
 
                                         <td>
                                             <a href="{{ route('admin/form_konfirmasi', $laporan->id_lap) }}">
-                                                Konfirmasi Laporan</a> |Tolak
+                                                Konfirmasi Laporan</a>
                                         </td>
 
                                     </tr>

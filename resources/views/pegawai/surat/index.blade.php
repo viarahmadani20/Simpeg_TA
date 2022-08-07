@@ -36,7 +36,7 @@
                                     <th> Keterangan</th>
                                     <th> Status</th>
                                     <th> File Surat</th>
-                                    <th> Operasi</th>
+                                    <th> </th>
                                 </tr>
                             </thead>
                             @foreach ($daftar_surat as $no_surat => $surat)
@@ -53,10 +53,10 @@
                                                 (Belum Diverifikasi)
                                             @endif
 
-                                            <td><a href=""class="btn btn-info d-inline-block"><span class="fa fa-edit (alias)"> Edit</span></a>
+                                            {{-- <td><a href=""class="btn btn-info d-inline-block"><span class="fa fa-edit (alias)"> Edit</span></a>
                                                 {{-- {{-- <form action="{{route('pegawai/hapus', $laporan->id)}}" class="d-inline-block" ><button class="btn btn-danger" type="submit" ><span class="fa fa-trash"> Hapus</span></button>
                                               </form> --}}
-                                            </td>
+                                            {{-- </td> --}}
 
                                         </td>
                                     </tr>

@@ -44,7 +44,7 @@
                                         style="width: 91.0625px;"> Status</th>
                                     <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1"
                                         colspan="1" aria-label="operasi: activate to sort column ascending"
-                                        style="width: 91.0625px;">Operasi</th>
+                                        style="width: 91.0625px;"></th>
                                 </tr>
                             </thead>
 

@@ -52,7 +52,7 @@
                                         <td> </td>
                                         <td>
                                             <a href="{{ route('admin/surat/form_konfirmasi', $surat->id_surat) }}">
-                                                Konfirmasi Surat</a> |Tolak
+                                                Konfirmasi Surat</a>
                                         </td>
 
 

@@ -48,6 +48,32 @@ class PegawaiController extends Controller
 
 }
 
+public function dashboardp(){
+    $laporan = Laporan::all()->count();
+    $surat = Surat::all()->count();
+
+    // return $surat;
+
+    return view('pegawai.pegawai.index', [
+        'laporan' => $laporan,
+        'surat' => $surat
+    ]);
+
+}
+
+public function dashboardg(){
+    $laporan = Laporan::all()->count();
+    $surat = Surat::all()->count();
+
+    // return $surat;
+
+    return view('guru.guru.index', [
+        'laporan' => $laporan,
+        'surat' => $surat
+    ]);
+
+}
+
     public function show( User $pegawai){
         return view('admin/pegawai/show', [
             'user'=>$pegawai,

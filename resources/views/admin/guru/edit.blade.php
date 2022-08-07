@@ -76,41 +76,51 @@ active
                   </div>
                 </div>
                 <div class="form-group row">
-                  <label class="control-label col-md-3">Agama</label>
+                    <label class="control-label col-md-3">Agama</label>
                     <div class="col-md-8">
                         <select class="form-control" name="id_agama" id="exampleSelect1">
-                            @foreach($daftar_agama as $agama)
-                            <option value="{{$agama->id}}">{{$agama->nama_agama}}</option>
+                            @foreach ($daftar_agama as $agama)
+                                <option value="{{ $agama->id }}"
+                                    {{ $agama->id == $guru->id_agama ? 'selected' : '' }}>
+                                    {{ $agama->nama_agama }}</option>
                             @endforeach
                         </select>
                     </div>
                 </div>
                 <div class="form-group row">
                     <label class="control-label col-md-3">Pendidikan</label>
-                      <div class="col-md-8">
-                          <select class="form-control" name="id_pendidikan" id="exampleSelect1">
-                              @foreach($daftar_pendidikan as $pendidikan)
-                              <option value="{{$pendidikan->id_pendidikan}}">{{$pendidikan->nama_pendidikan}}</option>
-                              @endforeach
-                          </select>
-                      </div>
-                  </div>
-                <div class="form-group row">
-                  <label class="control-label col-md-3">Golongan</label>
                     <div class="col-md-8">
-                        <select class="form-control" name="id_golongan" id="exampleSelect1">
-                            @foreach($daftar_golongan as $golongan)
-                            <option value="{{$golongan->id}}">{{$golongan->nama_golongan}}</option>
+                        <select class="form-control" name="id_pendidikan" id="exampleSelect1">
+                            @foreach ($daftar_pendidikan as $pendidikan)
+                                <option value="{{ $pendidikan->id_pendidikan }}"
+                                    {{ $pendidikan->id_pendidikan == $guru->id_pendidikan ? 'selected' : '' }}>
+                                    {{ $pendidikan->nama_pendidikan }}</option>
                             @endforeach
                         </select>
                     </div>
                 </div>
                 <div class="form-group row">
-                  <label class="control-label col-md-3">Status</label>
+                    <label class="control-label col-md-3">Golongan</label>
+                    <div class="col-md-8">
+                        <select class="form-control" name="id_golongan" id="exampleSelect1">
+                            @foreach ($daftar_golongan as $golongan)
+                                <option value="{{ $golongan->id }}"
+                                    {{ $golongan->id == $guru->id_golongan ? 'selected' : '' }}>
+                                    {{ $golongan->nama_golongan }}
+                                </option>
+                            @endforeach
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="control-label col-md-3">Status</label>
                     <div class="col-md-8">
                         <select class="form-control" name="id_status" id="exampleSelect1">
-                            @foreach($daftar_keluarga as $keluarga)
-                            <option value="{{$keluarga->id}}">{{$keluarga->nama_keluarga}}</option>
+                            @foreach ($daftar_keluarga as $keluarga)
+                                <option value="{{ $keluarga->id }}"
+                                    {{ $keluarga->id == $guru->id_status ? 'selected' : '' }}>
+                                    {{ $keluarga->nama_keluarga }}
+                                </option>
                             @endforeach
                         </select>
                     </div>
