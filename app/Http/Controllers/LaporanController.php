@@ -21,8 +21,6 @@ class LaporanController extends Controller
         ));
     }
 
-
-
     public function form_konfirmasilap(Laporan $laporan){
        return view('admin.laporan.konfirmasi', [
         'laporan' =>$laporan
@@ -36,8 +34,6 @@ class LaporanController extends Controller
         return redirect()->route('admin/laporan');
 
     }
-
-
 
     public function hapus($id){
         $laporan = Laporan::find($id);
@@ -58,11 +54,10 @@ class LaporanController extends Controller
         ]);
 
     }
+
     public function add(){
         return view ('pegawai.laporan.add');
     }
-
-
 
     public function simpan_laporan(Laporan $laporan, Request $request){
         $file = $request->file('file');

@@ -96,13 +96,8 @@ class LoginController extends Controller
     }
 
     public function profil(){
-        // $user = auth()->user();
-        // dd(Auth::user()->id_agama->nama_agama);
-
         return view ('profil/show');
     }
-
-
 
     public function edit($id){
         $user = auth()->user();

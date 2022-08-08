@@ -16,6 +16,7 @@
     </section>
     <section class="login-content">
       <div class="logo">
+
         <h1>Kepegawaian</h1>
       </div>
       <div class="login-box">
@@ -37,11 +38,11 @@
           <div class="form-group">
             <div class="utility">
               <div class="animated-checkbox">
-                <label>
+                {{-- <label>
                   <input type="checkbox"><span class="label-text">Stay Signed in</span>
-                </label>
+                </label> --}}
               </div>
-              <p class="semibold-text mb-2"><a href="{{route('registrasi')}}">Register</a></p>
+              {{-- <p class="semibold-text mb-2"><a href="{{route('registrasi')}}">Register</a></p> --}}
             </div>
           </div>
           <div class="form-group btn-container">

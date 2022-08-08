@@ -63,7 +63,6 @@ class GajiController extends Controller
         $jumlah = $gaji_pkk+$tunjangan_umum+$tmb_tunjangan_umum+$tunjangan_struk+$tunjangan_fungsi+$tunjangan_beras+$tunjangan_pph;
         $total = $jumlah - $potongan_bpjs-$potongan_pensiun-$potongan_beras-$potongan_cp-$potongan_pph-$potongan_ll;
 
-        // dd($pengurangan);
         $pengguna = User::findOrFail($id_user);
         $pengguna->gaji()->create([
             'id_user' => $id_user,
