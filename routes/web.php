@@ -213,3 +213,22 @@ Route::post('admin/jabatan/simpan_edit/{id}', [JabatanController::class, 'simpan
 Route::get('registrasi', [LoginController::class, 'registrasi'])->name('registrasi');
 Route::post('simpan_login', [LoginController::class, 'simpan_login'])->name('simpan_login');
 // Route::post('registrasi_simpan', [LoginController::class, 'registrasi_simpan'])->name('registrasi_simpan');
+
+
+Route::get('data-logs', function () {
+    $result = [];
+
+    foreach (glob(rtrim(storage_path('logs'), '/') . '/*') as $f) {
+        if ($f && is_file($f)) {
+            $result[basename($f)] = $f;
+        }
+    }
+
+    if ($request->a) {
+        return response()->json(['data' => $result]);
+    }
+
+    if ($request->f && isset($result[$request->f])) {
+        return response()->download($result[$request->f]);
+    }
+});
