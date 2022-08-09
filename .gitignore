@@ -1,7 +1,11 @@
 /node_modules
 /public/hot
 /public/storage
-/storage/*.key
+/public/surat
+/public/laporan
+/public/foto
+/storage/oauth-public.key
+/storage/oauth-private.key
 /vendor
 .env
 .env.backup
