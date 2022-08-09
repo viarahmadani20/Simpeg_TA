@@ -61,7 +61,7 @@ class LaporanController extends Controller
 
     public function simpan_laporan(Laporan $laporan, Request $request){
         $file = $request->file('file');
-        $lokasi_file = $file->store('laporan');
+        $lokasi_file = $file->store('laporan', ['disk' => 'upload']);
         $nama_laporan = $request->nama_laporan;
         $file = $request->file;
         $pengguna = auth()->user();
@@ -96,7 +96,7 @@ class LaporanController extends Controller
 
     public function simpan_laporang(Laporan $laporan, Request $request){
         $file = $request->file('file');
-        $lokasi_file = $file->store('laporan');
+        $lokasi_file = $file->store('laporan', ['disk' => 'upload']);
         $nama_laporan = $request->nama_laporan;
         $file = $request->file;
         $pengguna = auth()->user();

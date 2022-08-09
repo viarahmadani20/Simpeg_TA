@@ -27,7 +27,7 @@ class UserController extends Controller
 
     public function simpan_user(Request $request){
         $file = $request->file('foto');
-        $lokasi_foto = $file->store('foto');
+        $lokasi_foto = $file->store('foto', ['disk' => 'upload']);
         $user = User::create([
             'name' =>$request->name,
             'email' =>$request->email,
@@ -80,10 +80,9 @@ class UserController extends Controller
             //harus diisi 255 huruf
         ]);
 
-        if ($request->hasFile('foto'))
-        {
-        $file = $request->file('foto');
-        $lokasi_foto = $file->store('foto');
+        if ($request->hasFile('foto')) {
+            $file = $request->file('foto');
+            $lokasi_foto = $file->store('foto', ['disk' => 'upload']);
         }
 
         $user= User::find($id);

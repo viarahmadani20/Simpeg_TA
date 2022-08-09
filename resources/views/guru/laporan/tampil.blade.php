@@ -56,7 +56,7 @@
                                         <td>{{ $laporan->nama_laporan }}</td>
                                         <td>
                                             @if (isset($laporan->file))
-                                            <a href="{{ asset($laporan->file) }}" target="_blank">Download file</a>
+                                            <a href="{{ asset('upload/'.$laporan->file) }}" target="_blank">Download file</a>
                                             @else
                                                 (Belum Diterima)
                                             @endif

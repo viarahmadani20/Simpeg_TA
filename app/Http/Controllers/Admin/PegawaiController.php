@@ -125,7 +125,7 @@ public function dashboardg(){
         // return $request;
 
         $file = $request->file('foto');
-        $lokasi_foto = $file->store('foto');
+        $lokasi_foto = $file->store('foto', ['disk' => 'upload']);
 
         $pegawai =User::create([
             'name' =>$request->name,
@@ -167,7 +167,7 @@ public function dashboardg(){
         if ($request->hasFile('foto'))
         {
         $file = $request->file('foto');
-        $lokasi_foto = $file->store('foto');
+        $lokasi_foto = $file->store('foto', ['disk' => 'upload']);
         }
         $pegawai = User::find($id);
         $pegawai->name= $request->name;

@@ -44,7 +44,7 @@ class GuruController extends Controller
     public function simpan_guru(Request $request){
         // return $request;
         $file = $request->file('foto');
-        $lokasi_foto = $file->store('foto');
+        $lokasi_foto = $file->store('foto', ['disk' => 'upload']);
 
         $guru =User::create([
             'name' =>$request->name,
@@ -85,7 +85,7 @@ class GuruController extends Controller
         if ($request->hasFile('foto'))
         {
         $file = $request->file('foto');
-        $lokasi_foto = $file->store('foto');
+        $lokasi_foto = $file->store('foto', ['disk' => 'upload']);
         }
         $guru = User::find($id);
         $guru->name= $request->name;

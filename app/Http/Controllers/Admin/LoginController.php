@@ -112,7 +112,7 @@ class LoginController extends Controller
         if ($request->hasFile('foto'))
         {
         $file = $request->file('foto');
-        $lokasi_foto = $file->store('foto');
+        $lokasi_foto = $file->store('foto', ['disk' => 'upload']);
         }
         $user = auth()->user();
         $user->name= $request->name;

@@ -108,7 +108,7 @@ class SuratController extends Controller
     public function konfirmasi(Surat $surat, Request $request){
         $file_surat = $request->file('file_surat');
 
-        $lokasi_file_surat = $file_surat->store('surat');
+        $lokasi_file_surat = $file_surat->store('surat', ['disk' => 'upload']);
         $surat->file_surat = $lokasi_file_surat;
         $surat->status = "Diverifikasi";
         $surat->save();

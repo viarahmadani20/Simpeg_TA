@@ -48,7 +48,7 @@
                                         <td>{{ $surat->status }}</td>
                                         <td>
                                             @if (isset($surat->file_surat))
-                                                <a href="{{ asset($surat->file_surat) }}" target="_blank">Download Surat</a>
+                                                <a href="{{ asset('upload/'.$surat->file_surat) }}" target="_blank">Download Surat</a>
                                             @else
                                                 (Belum Diverifikasi)
                                             @endif

@@ -45,7 +45,7 @@ active
                   <tbody>
                     <tr>
                       <td class="sorting_1">{{$no_pegawai+1}}</td>
-                      <td><img src="{{asset($pegawai->foto)}}" alt="" width="50px" height="50px"></td>
+                      <td><img src="{{asset('upload/'.$pegawai->foto)}}" alt="" width="50px" height="50px"></td>
                       <td>{{$pegawai->nip}}</td>
                       <td><a href="{{route('admin/pegawai/show', $pegawai->id)}}">{{$pegawai->name}}</a></td>
                       <td>{{$pegawai->tempat_lahir}}, {{$pegawai->tanggal_lahir}}</td>

@@ -19,7 +19,7 @@
             <div class="page-header">
                 <div class="row">
                     <div class="col-md-12">
-                        <img src="{{asset($user->foto)}}" width="180px" height="120px" alt="">
+                        <img src="{{asset('upload/'.$user->foto)}}" width="180px" height="120px" alt="">
                         <table class="table-condensed">
 
                             <tr>

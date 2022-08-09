@@ -44,7 +44,7 @@ active
                   <tbody>
                     <tr>
                       <td class="sorting_1">{{$no_guru+1}}</td>
-                      <td><img src="{{asset($guru->foto)}}" alt="" width="50px" height="50px"></td>
+                      <td><img src="{{asset('upload/'.$guru->foto)}}" alt="" width="50px" height="50px"></td>
                       <td>{{$guru->nip}}</td>
                       <td><a href="{{route('admin/guru/show', $guru->id)}}">{{$guru->name}}</a></td>
                       <td>{{$guru->tempat_lahir}}, {{$guru->tanggal_lahir}}</td>
