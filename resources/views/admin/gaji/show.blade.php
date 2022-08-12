@@ -24,7 +24,7 @@
             <div class="page-header">
                 <div class="row">
                     <div class="col-md-12">
-                        <img src="{{ asset('upload/'.Auth::user()->foto) }}" width="180px" height="120px" alt="">
+                        {{-- <img src="{{ asset('upload/'.Auth::user()->foto) }}" width="180px" height="120px" alt=""> --}}
                         <table class="table-condensed">
                             <tr>
                                 <td>Nama</td>
