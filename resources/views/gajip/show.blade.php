@@ -69,7 +69,7 @@
                                     <td>{{ $item->potongan_ll }}</td>
                                     <td>{{ $item->gaji_diterima }}</td>
                                 </tr>
-
+                            @endforeach
                         </table>
 
 {{--
@@ -190,7 +190,6 @@
                             <a class="btn btn-secondary" target="_blank" href="{{ route('gaji/cetak'), $item->id }}"><i
                                     class="fa-solid fa-print"></i>Cetak</a>
                         </div>
-                        @endforeach
                     </div>
                 </div>
             </div>

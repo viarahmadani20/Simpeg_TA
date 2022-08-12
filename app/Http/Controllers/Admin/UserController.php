@@ -88,7 +88,7 @@ class UserController extends Controller
         $user= User::find($id);
         $user->name= $request->name;
         $user->email= $request->email;
-        $user->password= $request->password;
+        $user->password=Hash::make($request->password);
         $user->nip = $request ->nip;
         $user->tempat_lahir = $request->tempat_lahir;
         $user->tanggal_lahir = $request->tanggal_lahir;
