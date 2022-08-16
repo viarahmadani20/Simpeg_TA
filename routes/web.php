@@ -30,13 +30,13 @@ Route::get('/', function () {
     return view('admin/auth/login');
 })->name('admin/login');
 
-Route::get('/guru', function () {
-    return view('appguru');
-})->name('guru/dashboard');
+// Route::get('/guru', function () {
+//     return view('appguru');
+// })->name('guru/dashboard');
 
-Route::get('/pegawai', function () {
-    return view('apppegawai');
-})->name('pegawai/dashboard');
+// Route::get('/pegawai', function () {
+//     return view('apppegawai');
+// })->name('pegawai/dashboard');
 
 // Route::middleware('auth')->group(function () {
 
@@ -150,8 +150,8 @@ Route::get('guru/laporan', [LaporanController::class, 'indexg'])->name('guru/lap
 Route::get('guru/laporan/add', [LaporanController::class, 'addg'])->name('guru/laporan/add');
 Route::post('guru/laporan', [LaporanController::class, 'simpan_laporang'])->name('guru/simpan_laporan');
 Route::get('guru/laporan/hapus/{id}', [LaporanController::class, 'hapus'])->name('guru/hapus');
-// Route::get('guru/laporan/editlaporan/{id}', [LaporanController::class, 'editg'])->name('guru/editlaporan');
-// Route::post('guru/laporan/lap_edit/{id}', [LaporanController::class, 'simpan_editg'])->name('guru/lap_edit');
+Route::get('guru/laporan/editlaporan/{id}', [LaporanController::class, 'editg'])->name('guru/editlaporan');
+Route::post('guru/laporan/lap_edit/{id}', [LaporanController::class, 'simpan_editlap'])->name('guru/lap_edit');
 
 
 

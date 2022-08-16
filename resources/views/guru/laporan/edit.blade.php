@@ -27,7 +27,7 @@ active
             <!-- <h3 class="tile-title">Register</h3> -->
             <div class="tile-body">
               <!-- <form class="form-horizontal" action="#" method="post"> -->
-              <form class="form-horizontal"  method="post" action="{{route('guru/lap_edit', $laporan->id)}}">
+              <form class="form-horizontal"  method="post" action="{{route('guru/lap_edit', $laporan->id_lap)}}">
                 <div class="form-group row">
                     @csrf
                   <label class="control-label col-md-3">Nama Laporan</label>

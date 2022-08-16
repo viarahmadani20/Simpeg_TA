@@ -13,7 +13,7 @@ class LaporanController extends Controller
     public function index(){
         $daftar_laporan = Laporan::with([
             'pengguna'
-        ])->get();
+        ])->latest()->get();
         return view ('admin.laporan.index', compact(
             [
                 'daftar_laporan'
@@ -47,7 +47,7 @@ class LaporanController extends Controller
 
     public function indexp(){
         $pengguna = auth()->user();
-        $daftar_laporan = $pengguna->laporan;
+        $daftar_laporan = $pengguna->laporan()->latest()->get();
 
         return view('pegawai/laporan/index', [
             'daftar_laporan' => $daftar_laporan
@@ -81,7 +81,7 @@ class LaporanController extends Controller
 
     public function indexg(){
         $pengguna = auth()->user();
-        $daftar_laporan = $pengguna->laporan;
+        $daftar_laporan = $pengguna->laporan()->latest()->get();
 
         return view('guru/laporan/tampil', [
             'daftar_laporan' => $daftar_laporan
@@ -109,6 +109,22 @@ class LaporanController extends Controller
         return redirect()->route('guru/laporan');
     }
 
+    public function editg($id){
+        $laporan = Laporan::find($id);
+        return view('guru.laporan.edit', compact(
+            'laporan'
+        ));
+    }
+
+    public function simpan_editlap(Request $request, $id){
+        $laporan=Laporan::find($id);
+        $laporan->nama_laporan= $request->nama_laporan;
+        $laporan->file= $request->file;
+        $laporan->save();
+
+        return redirect ('guru/laporan');
+    }
+
     // public function store( Request $request)
     // {
     //     //
@@ -120,4 +136,6 @@ class LaporanController extends Controller
 
     //     return redirect ('pegawai/laporan');
     // }
+
+
 }

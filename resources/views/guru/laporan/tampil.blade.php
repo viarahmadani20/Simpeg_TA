@@ -62,11 +62,11 @@
                                             @endif
                                         </td>
                                         <td>{{$laporan->status}}</td>
-                                        {{-- <td><a
-                                                href="{{ route('guru/editlaporan', $laporan->id) }}"class="btn btn-info d-inline-block"><span
+                                        <td><a
+                                                href="{{ route('guru/editlaporan', $laporan->id_lap) }}"class="btn btn-info d-inline-block"><span
                                                     class="fa fa-edit (alias)"> Edit</span></a>
 
-                                        </td> --}}
+                                        </td>
                                     </tr>
                                 </tbody>
                             @endforeach
