@@ -9,14 +9,22 @@ use App\Models\Jabatan;
 class JabatanController extends Controller
 {
 
-        public function index(){
-            $daftar_jabatan = Jabatan::all();
-            return view ('admin.jabatan.tampil', compact(
-                [
-                    'daftar_jabatan'
-                ]
-            ));
+    public function index(Request $request){
+
+        $nama = $request->cari;
+        $nama_jabatan = $request->cari;
+        if ($request->filled('cari')){
+            $daftar_jabatan=Jabatan::whereLike('nama', $nama)->orWhereLike('nama_jabatan', $nama_jabatan)->paginate(2);
         }
+
+        else {
+            $daftar_jabatan = Jabatan::paginate(2);
+        }
+        return view('admin.jabatan.tampil', compact(
+                'daftar_jabatan'
+
+        ));
+    }
 
         public function add(){
             return view ('admin.jabatan.add');

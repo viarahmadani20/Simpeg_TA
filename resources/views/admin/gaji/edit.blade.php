@@ -28,7 +28,7 @@ active
               <form class="form-horizontal" method="post" action="{{ route('admin/simpan_editg', $gaji->id_gaji)}}" >
                 <div class="form-group row">
                     @csrf
-
+                    <input type="text" class="form-control-md-8" value="{{$gaji->id_gaji}}" name="id_gaji" hidden>
                   <label class="control-label col-md-3">Bulan</label>
                   <div class="col-md-8">
                     <input type="text" class="form-control-md-8" value="{{$gaji->bulan}}" name="bulan">
@@ -36,6 +36,14 @@ active
                   <label class="control-label col-md-3">Gaji Pokok</label>
                   <div class="col-md-8">
                     <input type="text" class="form-control-md-8" value="{{$gaji->gaji_pkk}}" name="gaji_pkk">
+                  </div>
+                  <label class="control-label col-md-3">Tunjangan Istri</label>
+                  <div class="col-md-8">
+                    <input type="text" class="form-control-md-8" value="{{$gaji->tunjangan_istri}}" name="tunjangan_istri">
+                  </div>
+                  <label class="control-label col-md-3">Tunjangan Anak</label>
+                  <div class="col-md-8">
+                    <input type="text" class="form-control-md-8" value="{{$gaji->tunjangan_anak}}" name="tunjangan_anak">
                   </div>
                   <label class="control-label col-md-3">Tunjangan Umum</label>
                   <div class="col-md-8">

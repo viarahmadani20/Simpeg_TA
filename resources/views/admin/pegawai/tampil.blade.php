@@ -12,10 +12,7 @@
                 <h1><i class="fa fa-dashboard"></i> Simpeg Dashboard</h1>
                 <p>Dashboard Sistem Kepegawaian</p>
             </div>
-            <ul class="app-breadcrumb breadcrumb">
-                <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
-                <li class="breadcrumb-item"><a href="admin/pegawai/tampil">Dashboard</a></li>
-            </ul>
+
         </div>
         <div class="row">
             <div class="col-xl-3 col-md-6 mb-4">
@@ -63,10 +60,11 @@
                             </div>
                         </div>
                     </div>
+
                 </div>
             </div>
 
-        </div>
+        </div class='row'>
 
 
 

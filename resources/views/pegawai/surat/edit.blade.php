@@ -27,12 +27,16 @@ active
             <!-- <h3 class="tile-title">Register</h3> -->
             <div class="tile-body">
               <!-- <form class="form-horizontal" action="#" method="post"> -->
-              <form class="form-horizontal"  method="post" action="{{route('pegawai/surat_edits', $surat->id)}}">
+              <form class="form-horizontal"  method="post" action="{{route('pegawai/surat_edits', $surat->id_surat)}}">
                 <div class="form-group row">
                     @csrf
                   <label class="control-label col-md-3">Nama Surat</label>
                   <div class="col-md-8">
                     <input class="form-control col-md-8" type="text" value="{{$surat->nama_surat}}" name="nama_surat">
+                  </div>
+                  <label class="control-label col-md-3">Keterangan</label>
+                  <div class="col-md-8">
+                    <input class="form-control col-md-8" type="text" value="{{$surat->keterangan}}" name="keterangan">
                   </div>
                 </div>
 

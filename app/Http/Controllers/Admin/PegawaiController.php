@@ -92,8 +92,17 @@ public function dashboardg(){
             ->with('daftar_keluarga', $daftar_keluarga);
     }
 
-    public function index(){
-        $daftar_pegawai = User::role('pegawai')->get();
+    public function index(Request $request){
+        $alamat = $request->cari;
+        $name= $request->cari;
+        if ($request->filled('cari')){
+            $daftar_pegawai=User::whereLike('alamat', $alamat)->orWhereLike('name', $name)->paginate(2);
+        }
+
+        else {
+            $daftar_pegawai = User::role('pegawai')->paginate(2);
+        }
+
         return view ('admin.pegawai.index', compact(
             [
                 'daftar_pegawai'

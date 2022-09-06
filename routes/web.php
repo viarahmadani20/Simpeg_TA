@@ -123,7 +123,8 @@ Route::post('profil/simpan_edit/{id}', [LoginController::class, 'simpan_edit'])-
 Route::get('gajip/show', [GajiController::class, 'show'])->name('gajip');
 Route::post('gajip/download', [GajiController::class, 'show'])->name('gaji/download');
 Route::get('gajip/cetak', [GajiController::class, 'cetak'])->name('gaji/cetak');
-Route::get('gaji/cetak', [GajiController::class, 'cetaka'])->name('admin/gaji/cetak');
+Route::get('gaji/cetak/{id}', [GajiController::class, 'cetaka'])->name('admin/gaji/cetak');
+Route::get('gaji/cetak', [GajiController::class, 'cetakall'])->name('admin/gaji/cetakall');
 
 
 
@@ -164,6 +165,8 @@ Route::get('pegawai/laporan', [LaporanController::class, 'indexp'])->name('pegaw
 Route::get('pegawai/laporan/add', [LaporanController::class, 'add'])->name('pegawai/laporan/add');
 Route::post('pegawai/laporan', [LaporanController::class, 'simpan_laporan'])->name('pegawai/simpan_laporan');
 Route::get('pegawai/laporan/hapus/{id}', [LaporanController::class, 'hapus'])->name('pegawai/hapus');
+Route::get('pegawai/laporan/editlaporan/{id}', [LaporanController::class, 'editp'])->name('pegawai/editlaporan');
+Route::post('pegawai/laporan/lap_edit/{id}', [LaporanController::class, 'simpan_editlapp'])->name('pegawai/lap_edit');
 
 
 Route::get('admin/surat', [SuratController::class, 'index'])->name('admin/surat');
@@ -181,15 +184,15 @@ Route::get('guru/surat', [SuratController::class, 'indexx'])->name('guru/surat')
 Route::get('guru/surat/add', [SuratController::class, 'form_surat'])->name('guru/surat/form_surat');
 Route::post('guru/surat', [SuratController::class, 'buat_surat'])->name('guru/surat/buat_surat');
 Route::get('guru/surat/hapus/{id}', [SuratController::class, 'hapus'])->name('guru/surat/hapus');
-Route::get('guru/surat/edit/{id}', [SuratController::class, 'edit'])->name('guru/surat/edits');
-Route::post('guru/surat_edit/{id}', [SuratController::class, 'simpan_edit'])->name('guru/surat_edits');
+Route::get('guru/surat/edit/{id}', [SuratController::class, 'editg'])->name('guru/surat/edits');
+Route::post('guru/surat_edit/{id}', [SuratController::class, 'simpan_editg'])->name('guru/surat_edits');
 
 Route::get('pegawai/surat', [SuratController::class, 'indexp'])->name('pegawai/surat');
 Route::get('pegawai/surat/add', [SuratController::class, 'form_suratp'])->name('pegawai/surat/form_surat');
 Route::post('pegawai/surat', [SuratController::class, 'buat_suratp'])->name('pegawai/surat/buat_surat');
 Route::get('pegawai/surat/hapus/{id}', [SuratController::class, 'hapus'])->name('pegawai/surat/hapus');
-Route::get('pegawai/surat/edit/{id}', [SuratController::class, 'edit'])->name('pegawai/surat/edits');
-Route::post('pegawai/surat_edit/{id}', [SuratController::class, 'simpan_edit'])->name('pegawai/surat_edits');
+Route::get('pegawai/surat/edit/{id}', [SuratController::class, 'editp'])->name('pegawai/surat/edits');
+Route::post('pegawai/surat_edit/{id}', [SuratController::class, 'simpan_editp'])->name('pegawai/surat_edits');
 
 
 // Route::get('admin/surat', [SuratController::class, 'index'])->name('admin/surat');

@@ -12,6 +12,17 @@ active
           <h1><i class="fa fa-laptop"></i> Data Pegawai</h1>
           <!-- <p>Bootstrap Components</p> -->
         </div>
+        <ul class="app-breadcrumb breadcrumb">
+            {{-- <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
+            <li class="breadcrumb-item"><a href="#">User</a></li> --}}
+            <li class="app-search">
+                <form action="{{route('admin/pegawai/index')}}">
+                    @csrf
+            <input class="app-search__input" name="cari" type="search" placeholder="Search">
+            <button class="app-search__button"><i class="fa fa-search">Cari</i></button>
+        </form>
+        </li>
+        </ul>
 
       </div>
 
@@ -88,9 +99,11 @@ active
                     @endforeach
                 </table>
             </div>
+            {{$daftar_pegawai->links()}}
           </div>
         </div>
         <div class="row">
+        </div>
         </div>
       </div>
     </main>

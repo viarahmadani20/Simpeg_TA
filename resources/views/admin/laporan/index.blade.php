@@ -13,8 +13,15 @@
                 <!-- <p>Bootstrap Components</p> -->
             </div>
             <ul class="app-breadcrumb breadcrumb">
-                <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
-                <li class="breadcrumb-item"><a href="#">Laporan</a></li>
+                {{-- <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
+                <li class="breadcrumb-item"><a href="#">User</a></li> --}}
+                <li class="app-search">
+                    <form action="{{route('admin/laporan')}}">
+                        @csrf
+                <input class="app-search__input" name="cari" type="search" placeholder="Search">
+                <button class="app-search__button"><i class="fa fa-search">Cari</i></button>
+            </form>
+            </li>
             </ul>
         </div>
         <!-- Buttons-->
@@ -79,6 +86,7 @@
                             @endforeach
                         </table>
                     </div>
+                    {{$daftar_laporan->links()}}
                 </div>
             </div>
             <div class="row">

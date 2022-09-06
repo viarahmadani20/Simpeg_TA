@@ -10,10 +10,21 @@ class LaporanController extends Controller
 
     //Admin
 
-    public function index(){
-        $daftar_laporan = Laporan::with([
-            'pengguna'
-        ])->latest()->get();
+    public function index(Request $request){
+
+        $nama_laporan = $request->cari;
+        // $id_user= $request->cari;
+        if ($request->filled('cari')){
+            $daftar_laporan=Laporan::whereLike('nama_laporan', $nama_laporan)->paginate(5);
+        }
+
+        else {
+            $daftar_laporan = Laporan::with([
+                'pengguna'
+            ])->latest()->paginate(5);
+        }
+
+
         return view ('admin.laporan.index', compact(
             [
                 'daftar_laporan'
@@ -45,9 +56,20 @@ class LaporanController extends Controller
     //Pegawai
 
 
-    public function indexp(){
-        $pengguna = auth()->user();
-        $daftar_laporan = $pengguna->laporan()->latest()->get();
+    public function indexp(Request $request){
+
+
+        $nama_laporan= $request->cari;
+        if ($request->filled('cari')){
+            $daftar_laporan=Laporan::whereLike('nama_laporan', $nama_laporan)->paginate(5);
+        }
+
+        else {
+            $pengguna = auth()->user();
+            $daftar_laporan = $pengguna->laporan()->latest()->paginate(5);
+        }
+
+
 
         return view('pegawai/laporan/index', [
             'daftar_laporan' => $daftar_laporan
@@ -74,14 +96,47 @@ class LaporanController extends Controller
         return redirect()->route('pegawai/laporan');
     }
 
+    public function editp($id){
+        $laporan = Laporan::find($id);
+        return view('pegawai.laporan.edit', compact(
+            'laporan'
+        ));
+    }
+
+    public function simpan_editlapp(Request $request, $id){
+
+        // $file = $request->file('file');
+        // $lokasi_file = $file->store('laporan', ['disk' => 'upload']);
+        $laporan=Laporan::find($id);
+        if ($request->hasFile('file')) {
+            $file = $request->file('file');
+            $lokasi_file = $file->store('file', ['disk' => 'upload']);
+            $laporan->file= $lokasi_file;
+        }
+        $laporan->nama_laporan= $request->nama_laporan;
+
+        $laporan->save();
+
+        return redirect ('pegawai/laporan');
+    }
+
 
 
 
     //Guru
 
-    public function indexg(){
-        $pengguna = auth()->user();
-        $daftar_laporan = $pengguna->laporan()->latest()->get();
+    public function indexg(Request $request){
+
+        $nama_laporan= $request->cari;
+        if ($request->filled('cari')){
+            $daftar_laporan=Laporan::whereLike('nama_laporan', $nama_laporan)->orWhereLike('nama_laporan', $nama_laporan)->paginate(5);
+        }
+
+        else {
+            $pengguna = auth()->user();
+            $daftar_laporan = $pengguna->laporan()->latest()->paginate(5);
+        }
+
 
         return view('guru/laporan/tampil', [
             'daftar_laporan' => $daftar_laporan
@@ -117,9 +172,17 @@ class LaporanController extends Controller
     }
 
     public function simpan_editlap(Request $request, $id){
+
+        // $file = $request->file('file');
+        // $lokasi_file = $file->store('laporan', ['disk' => 'upload']);
         $laporan=Laporan::find($id);
+        if ($request->hasFile('file')) {
+            $file = $request->file('file');
+            $lokasi_file = $file->store('file', ['disk' => 'upload']);
+            $laporan->file= $lokasi_file;
+        }
         $laporan->nama_laporan= $request->nama_laporan;
-        $laporan->file= $request->file;
+
         $laporan->save();
 
         return redirect ('guru/laporan');
@@ -139,3 +202,5 @@ class LaporanController extends Controller
 
 
 }
+
+

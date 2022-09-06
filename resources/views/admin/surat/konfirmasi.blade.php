@@ -28,7 +28,8 @@
                                 </div>
                                 <label class="control-label col-md-3">Upload File Surat :</label>
                                 <div class="col-md-8">
-                                    <input type="file" name="file_surat" />
+                                    <h6 class="text-danger"> File harus *pdf</h6>
+                                    <input type="file" name="file_surat" accept=".pdf"/>
                                 </div>
 
                                 <button type="submit">Konfirmasi</button> <br>

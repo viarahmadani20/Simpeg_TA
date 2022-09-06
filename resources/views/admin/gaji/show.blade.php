@@ -39,72 +39,82 @@
                             <tr>
                                 <td> Gaji Pokok</td>
                                 <td>:</td>
-                                <td>{{ $gaji->gaji_pkk }}</td>
+                                <td>Rp.{{number_format($gaji->gaji_pkk)}}</td>
+                            </tr>
+                            <tr>
+                                <td> Tunjangan Istri</td>
+                                <td>:</td>
+                                <td>Rp.{{number_format($gaji->tunjangan_istri)}}</td>
+                            </tr>
+                            <tr>
+                                <td> Tunjangan Anak</td>
+                                <td>:</td>
+                                <td>Rp.{{number_format($gaji->tunjangan_anak)}}</td>
                             </tr>
                             <tr>
                                 <td> Tunjangan Umum</td>
                                 <td>:</td>
-                                <td>{{ $gaji->tunjangan_umum }}</td>
+                                <td>Rp.{{number_format($gaji->tunjangan_umum)}}</td>
                             </tr>
                             <tr>
                                 <td>Tambahan Tunjangan Umum</td>
                                 <td>:</td>
-                                <td>{{ $gaji->tmb_tunjangan_umum }}</td>
+                                <td>Rp.{{number_format($gaji->tmb_tunjangan_umum)}}</td>
                             </tr>
                             <tr>
                                 <td> Tunjangan Struk</td>
                                 <td>:</td>
-                                <td>{{ $gaji->tunjangan_struk }}</td>
+                                <td>Rp.{{number_format( $gaji->tunjangan_struk)}}</td>
                             </tr>
                             <tr>
                                 <td> Tunjangan Fungsi</td>
                                 <td>:</td>
-                                <td>{{ $gaji->tunjangan_fungsi }}</td>
+                                <td>Rp.{{number_format($gaji->tunjangan_fungsi)}}</td>
                             </tr>
                             <tr>
                                 <td> Tunjangan Beras</td>
                                 <td>:</td>
-                                <td>{{ $gaji->tunjangan_beras }}</td>
+                                <td>Rp.{{number_format($gaji->tunjangan_beras)}}</td>
                             </tr>
                             <tr>
                                 <td> Tunjangan PPH</td>
                                 <td>:</td>
-                                <td>{{ $gaji->tunjangan_pph }}</td>
+                                <td>Rp.{{number_format($gaji->tunjangan_pph)}}</td>
                             </tr>
                             <tr>
                                 <td> Potongan BPJS</td>
                                 <td>:</td>
-                                <td>{{ $gaji->potongan_bpjs }}</td>
+                                <td>Rp.{{number_format($gaji->potongan_bpjs)}}</td>
                             </tr>
                             <tr>
                                 <td> Potongan Pensiun</td>
                                 <td>:</td>
-                                <td>{{ $gaji->potongan_pensiun }}</td>
+                                <td>Rp.{{number_format( $gaji->potongan_pensiun)}}</td>
                             </tr>
                             <tr>
                                 <td> Potongan Beras</td>
                                 <td>:</td>
-                                <td>{{ $gaji->potongan_beras }}</td>
+                                <td>Rp.{{number_format($gaji->potongan_beras)}}</td>
                             </tr>
                             <tr>
                                 <td> Potongan CP</td>
                                 <td>:</td>
-                                <td>{{ $gaji->potongan_cp }}</td>
+                                <td>Rp.{{number_format($gaji->potongan_cp )}}</td>
                             </tr>
                             <tr>
                                 <td> Potongan PPH</td>
                                 <td>:</td>
-                                <td>{{ $gaji->potongan_pph }}</td>
+                                <td>Rp.{{number_format($gaji->potongan_pph)}}</td>
                             </tr>
                             <tr>
                                 <td> Potongan Lain-lain</td>
                                 <td>:</td>
-                                <td>{{ $gaji->potongan_ll }}</td>
+                                <td>Rp.{{number_format($gaji->potongan_ll)}}</td>
                             </tr>
                             <tr>
                                 <td> Gaji Yang Dietrima</td>
                                 <td>:</td>
-                                <td>{{ $gaji->gaji_diterima }}</td>
+                                <td>Rp.{{number_format($gaji->gaji_diterima)}}</td>
                             </tr>
                         </table>
                         <div>

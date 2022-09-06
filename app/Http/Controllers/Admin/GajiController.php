@@ -11,14 +11,20 @@ use Barryvdh\DomPDF\Facade as Download;
 
 class GajiController extends Controller
 {
-    public function index(){
-        $daftar_gaji = Gaji::with([
-            'pengguna'
-        ])->get();
+    public function index(Request $request){
+
+        $bulan = $request->cari;
+        $id_user= $request->cari;
+        if ($request->filled('cari')){
+            $daftar_gaji=Gaji::whereLike('bulan', $bulan)->orWhereLike('id_user', $id_user)->paginate(12);
+        }
+
+        else {
+            $daftar_gaji = Gaji::paginate(12);
+        }
         return view('admin.gaji.tampil', compact(
-            [
                 'daftar_gaji'
-            ]
+
         ));
     }
 
@@ -46,6 +52,8 @@ class GajiController extends Controller
         $id_user = $request->id_user;
         $bulan = $request->bulan;
         $gaji_pkk= $request->gaji_pkk;
+        $tunjangan_istri = $request->tunjangan_istri;
+        $tunjangan_anak = $request->tunjangan_anak;
         $tunjangan_umum = $request->tunjangan_umum;
         $tmb_tunjangan_umum = $request->tunjangan_umum;
         $tunjangan_struk = $request->tunjangan_struk;
@@ -60,7 +68,7 @@ class GajiController extends Controller
         $potongan_ll = $request->potongan_ll;
         $gaji_diterima = $request->gaji_diterima;
 
-        $jumlah = $gaji_pkk+$tunjangan_umum+$tmb_tunjangan_umum+$tunjangan_struk+$tunjangan_fungsi+$tunjangan_beras+$tunjangan_pph;
+        $jumlah = $gaji_pkk+$tunjangan_istri+$tunjangan_anak+$tunjangan_umum+$tmb_tunjangan_umum+$tunjangan_struk+$tunjangan_fungsi+$tunjangan_beras+$tunjangan_pph;
         $total = $jumlah - $potongan_bpjs-$potongan_pensiun-$potongan_beras-$potongan_cp-$potongan_pph-$potongan_ll;
 
         $pengguna = User::findOrFail($id_user);
@@ -68,6 +76,8 @@ class GajiController extends Controller
             'id_user' => $id_user,
             'bulan' => $bulan,
             'gaji_pkk' => $gaji_pkk,
+            'tunjangan_istri' => $tunjangan_istri,
+            'tunjangan_anak' => $tunjangan_anak,
             'tunjangan_umum' => $tunjangan_umum,
             'tmb_tunjangan_umum' => $tmb_tunjangan_umum,
             'tunjangan_struk' => $tunjangan_struk,
@@ -95,23 +105,53 @@ class GajiController extends Controller
     }
 
     public function simpan_edit (Request $request, $id) {
-        $gaji = Gaji::find($id);
-        $gaji->bulan = $request->bulan;
-        $gaji->gaji_pkk = $request->gaji_pkk;
-        $gaji->tunjangan_umum = $request->tunjangan_umum;
-        $gaji->tmb_tunjangan_umum = $request->tmb_tunjangan_umum;
-        $gaji->tunjangan_struk = $request->tunjangan_struk;
-        $gaji->tunjangan_fungsi = $request->tunjangan_fungsi;
-        $gaji->tunjangan_beras = $request->tunjangan_beras;
-        $gaji->tunjangan_pph = $request->tunjangan_pph;
-        $gaji->potongan_bpjs = $request->potongan_bpjs;
-        $gaji->potongan_pensiun = $request->potongan_pensiun;
-        $gaji->potongan_beras = $request->potongan_beras;
-        $gaji->potongan_cp = $request->potongan_cp;
-        $gaji->potongan_pph = $request->potongan_pph;
-        $gaji->potongan_ll = $request->potongan_ll;
-        $gaji->gaji_diterima = $request->gaji_diterima;
+        $id_user = $request->id_user;
+        $bulan = $request->bulan;
+        $gaji_pkk= $request->gaji_pkk;
+        $tunjangan_istri = $request->tunjangan_istri;
+        $tunjangan_anak = $request->tunjangan_anak;
+        $tunjangan_umum = $request->tunjangan_umum;
+        $tmb_tunjangan_umum = $request->tunjangan_umum;
+        $tunjangan_struk = $request->tunjangan_struk;
+        $tunjangan_fungsi = $request->tunjangan_fungsi;
+        $tunjangan_beras = $request->tunjangan_beras;
+        $tunjangan_pph = $request->tunjangan_pph;
+        $potongan_bpjs = $request->potongan_bpjs;
+        $potongan_pensiun = $request->potongan_pensiun;
+        $potongan_beras = $request->potongan_beras;
+        $potongan_cp = $request->potongan_cp;
+        $potongan_pph = $request->potongan_pph;
+        $potongan_ll = $request->potongan_ll;
+        $gaji_diterima = $request->gaji_diterima;
+
+        $jumlah = $gaji_pkk+$tunjangan_istri+$tunjangan_anak+$tunjangan_umum+$tmb_tunjangan_umum+$tunjangan_struk+$tunjangan_fungsi+$tunjangan_beras+$tunjangan_pph;
+        $total = $jumlah - $potongan_bpjs-$potongan_pensiun-$potongan_beras-$potongan_cp-$potongan_pph-$potongan_ll;
+
+        //edit
+        $gaji = Gaji::find($request->id_gaji);
+        $gaji->bulan = $bulan;
+        $gaji->gaji_pkk = $gaji_pkk;
+        $gaji->tunjangan_istri = $tunjangan_istri;
+        $gaji->tunjangan_anak = $tunjangan_anak;
+        $gaji->tunjangan_umum = $tunjangan_umum;
+        $gaji->tmb_tunjangan_umum = $tmb_tunjangan_umum;
+        $gaji->tunjangan_struk = $tunjangan_struk;
+        $gaji->tunjangan_fungsi = $tunjangan_fungsi;
+        $gaji->tunjangan_beras = $tunjangan_beras;
+        $gaji->tunjangan_pph = $tunjangan_pph;
+        $gaji->potongan_bpjs = $potongan_bpjs;
+        $gaji->potongan_pensiun = $potongan_pensiun;
+        $gaji->potongan_beras = $potongan_beras;
+        $gaji->potongan_cp = $potongan_cp;
+        $gaji->potongan_pph = $potongan_pph;
+        $gaji->potongan_ll = $potongan_ll;
+        $gaji->gaji_diterima=$total ;
         $gaji->save();
+        // dd($pengguna);
+
+        // dd($gaji);
+
+
 
         return redirect ('admin/gaji')->with('update', 'Data berhasil di update');
     }
@@ -125,14 +165,23 @@ class GajiController extends Controller
 
     public function showa(Gaji $gaji){
 
+
          return view('admin.gaji.show', ['gaji'=>$gaji]);
 
     }
 
-    public function cetaka()
+    public function cetaka($id)
     {
-        $gaji = Gaji::all();
-        return view('admin.gaji.cetak')->with('cetak', $gaji);
+        $cetak = Gaji::find($id);
+        // dd($cetak);
+        return view('admin.gaji.cetak', compact('cetak'));
+    }
+
+    public function cetakall()
+    {
+        $cetak = Gaji::all();
+        // dd($cetak);
+        return view('admin.gaji.cetakall', compact('cetak'));
     }
 
 
@@ -144,12 +193,17 @@ class GajiController extends Controller
     // Pegawai
 
 
-    public function show(){
-        $user = auth()->user();
-        $gaji_user = $user->gaji;
-        // dd($user->gaji);
-        return view ('gajip/show')->with('cetak', $gaji_user);
-
+    public function show(Request $request){
+        $bulan = $request->cari;
+        $id_user= $request->cari;
+        if ($request->filled('cari')){
+            $daftar_gaji=Gaji::whereLike('bulan', $bulan)->orWhereLike('id_user', $id_user)->paginate(2);
+        }
+        else {
+            $user = auth()->user();
+            $daftar_gaji=Gaji::whereLike('id_user', $user->id)->paginate(2);
+        }
+        return view ('gajip/show', compact('daftar_gaji'));
     }
 
     public function cetak()

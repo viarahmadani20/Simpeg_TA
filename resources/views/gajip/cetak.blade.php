@@ -33,45 +33,52 @@
     <div class="form-group">
       <p align="center"><b>Slip Gaji</b></p>
       <table class="static" align="center" rules="all" border="1px" style="width: 1%;">
-      <tr>
-        <th>No.</th>
-        <th>Nama </th>
-        <th>Bulan</th>
-        <th>Gaji Pokok</th>
-        <th>Tunjangan Umum</th>
-        <th>Tambahan Tunjangan Umum</th>
-        <th>Tunjangan Struk</th>
-        <th>Tunjangan Fungsi</th>
-        <th>Tunjangan Beras</th>
-        <th>Tunjangan PPH</th>
-        <th>Potongan BPJS</th>
-        <th>Potongan Pensiun</th>
-        <th>Potongan Beras</th>
-        <th>Potongan CP</th>
-        <th>Potongan PPH</th>
-        <th>Potongan Lain-lain</th>
-        <th>Gaji Yang Dietrima</th>
-      </tr>
-      @foreach ($cetak as $item)
-      <tr>
-        <td>{{$loop->iteration}}</td>
-        <td>{{ Auth::user()->name}}</td>
-        <td>{{$item->bulan}}</td>
-        <td>{{$item->gaji_pkk}}</td>
-        <td>{{$item->tunjangan_umum}}</td>
-        <td>{{$item->tmb_tunjangan_umum}}</td>
-        <td>{{$item->tunjangan_struk}}</td>
-        <td>{{$item->tunjangan_fungsi}}</td>
-        <td>{{$item->tunjangan_beras}}</td>
-        <td>{{$item->tunjangan_pph}}</td>
-        <td>{{$item->potongan_bpjs}}</td>
-        <td>{{$item->potongan_pensiun}}</td>
-        <td>{{$item->potongan_beras}}</td>
-        <td>{{$item->potongan_cp}}</td>
-        <td>{{$item->potongan_pph}}</td>
-        <td>{{$item->potongan_ll}}</td>
-        <td>{{$item->gaji_diterima}}</td>
-      </tr>
+        <tr>
+            <th>No.</th>
+            <th>Nama </th>
+            <th>Bulan</th>
+            <th>Gaji Pokok</th>
+            <th>
+                Tunjangan Istri <br>
+                Tunjangan Anak <br>
+                Tunjangan Umum <br>
+                Tambahan Tunjangan Umum </th>
+            <th>Tunjangan Struk <br>
+                Tunjangan Fungsi <br>
+                Tunjangan Beras <br>
+                Tunjangan PPH <br>
+            </th>
+            <th>Potongan BPJS <br>
+                Potongan Pensiun <br>
+                Potongan Beras </th>
+            <th>Potongan CP<br>
+                Potongan PPH<br>
+                Potongan Lain-lain</th>
+            <th>Gaji Yang Dietrima</th>
+          </tr>
+          @foreach ($cetak as $item)
+          <tr>
+            <td>{{$loop->iteration}}</td>
+            <td>{{ Auth::user()->name}}</td>
+            <td>{{$item->bulan}}</td>
+            <td>Rp.{{number_format($item->gaji_pkk)}}</td>
+            <td>Rp.{{number_format($item->tunjangan_istri)}} <br>
+                Rp.{{number_format($item->tunjangan_anak)}} <br>
+                Rp.{{number_format($item->tunjangan_umum)}} <br>
+                Rp.{{number_format($item->tmb_tunjangan_umum)}} </td>
+            <td>Rp.{{number_format($item->tunjangan_struk)}} <br>
+                Rp.{{number_format($item->tunjangan_fungsi)}} <br>
+                Rp.{{number_format($item->tunjangan_beras)}} <br>
+                Rp.{{number_format($item->tunjangan_pph)}}</td>
+            <td>Rp.{{number_format($item->potongan_bpjs)}} <br>
+                Rp.{{number_format($item->potongan_pensiun)}} <br>
+                Rp.{{number_format($item->potongan_beras)}} </td>
+            <td>Rp.{{number_format($item->potongan_cp)}}<br>
+                Rp.{{number_format($item->potongan_pph)}}<br>
+                Rp.{{number_format($item->potongan_ll)}}</td>
+            <td>Rp.{{number_format($item->gaji_diterima)}}</td>
+          </tr>
+
       @endforeach
       </table>
     </div>

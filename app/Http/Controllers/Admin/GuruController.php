@@ -16,8 +16,17 @@ use Illuminate\Support\Facades\Hash;
 
 class GuruController extends Controller
 {
-    public function index(){
-        $daftar_guru = User::role('guru')->get();
+    public function index(Request $request){
+        $alamat = $request->cari;
+        $name= $request->cari;
+        if ($request->filled('cari')){
+            $daftar_guru=User::whereLike('alamat', $alamat)->orWhereLike('name', $name)->paginate(2);
+        }
+
+        else {
+            $daftar_guru = User::role('guru')->paginate(2);
+        }
+
         return view ('admin.guru.index', compact([
             'daftar_guru'
         ]));

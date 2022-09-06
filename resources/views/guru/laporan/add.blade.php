@@ -38,7 +38,8 @@
                             <div class="form-group row">
                                 <label class="control-label col-md-3">Dokumen</label>
                                 <div class="col-md-5">
-                                    <input class="form-control col-md-8" type="file" name="file">
+                                    <h6 class="text-danger"> File harus *pdf</h6>
+                                    <input class="form-control col-md-8" type="file" name="file" accept=".pdf">
                                 </div>
                             </div>
                             <div class="tile-footer">

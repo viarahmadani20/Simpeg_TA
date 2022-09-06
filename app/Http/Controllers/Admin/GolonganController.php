@@ -8,14 +8,23 @@ use App\Models\Golongan;
 
 class GolonganController extends Controller
 {
-    public function index(){
-        $daftar_golongan = Golongan::all();
-        return view ('admin.golongan.tampil', compact(
-            [
+    public function index(Request $request){
+
+
+        $nama_golongan= $request->cari;
+        if ($request->filled('cari')){
+            $daftar_golongan=Golongan::whereLike('nama_golongan', $nama_golongan)->paginate(5);
+        }
+
+        else {
+            $daftar_golongan = Golongan::paginate(5);
+        }
+        return view('admin.golongan.tampil', compact(
                 'daftar_golongan'
-            ]
+
         ));
     }
+
 
     public function add(){
         return view ('admin.golongan.add');

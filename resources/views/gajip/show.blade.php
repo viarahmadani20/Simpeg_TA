@@ -13,10 +13,15 @@
                 <!-- <p>Bootstrap Components</p> -->
             </div>
             <ul class="app-breadcrumb breadcrumb">
-                <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
-                <li class="breadcrumb-item">Gaji</li>
-                <li class="breadcrumb-item"><a href="/admin/gaji">Data Gaji</a></li>
-                <li class="breadcrumb-item"><a href="#">Detail Gaji</a></li>
+                {{-- <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
+                <li class="breadcrumb-item"><a href="#">User</a></li> --}}
+                <li class="app-search">
+                    <form action="{{ route('gajip') }}">
+                        @csrf
+                        <input class="app-search__input" name="cari" type="search" placeholder="Search">
+                        <button class="app-search__button"><i class="fa fa-search">Cari</i></button>
+                    </form>
+                </li>
             </ul>
         </div>
         <!-- Buttons-->
@@ -24,9 +29,9 @@
             <div class="page-header">
                 <div class="row">
                     <div class="col-md-12">
-                        <img src="{{ asset('upload/'.Auth::user()->foto) }}" width="180px" height="120px" alt="">
+                        <img src="{{ asset('upload/' . Auth::user()->foto) }}" width="180px" height="120px" alt="">
                         {{-- <table class="table-condensed"> --}}
-                            <br>
+                        <br>
 
                         <table class="static" align="center" rules="all" border="1px" style="width: 1%;">
                             <tr>
@@ -34,6 +39,8 @@
                                 <th>Nama </th>
                                 <th>Bulan</th>
                                 <th>Gaji Pokok</th>
+                                <th>Tunjangan Istri</th>
+                                <th>Tunjangan Anak</th>
                                 <th>Tunjangan Umum</th>
                                 <th>Tambahan Tunjangan Umum</th>
                                 <th>Tunjangan Struk</th>
@@ -49,32 +56,32 @@
                                 <th>Gaji Yang Dietrima</th>
                             </tr>
                             <br>
-                            @foreach ($cetak as $item)
+                            @foreach ($daftar_gaji as $item)
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ Auth::user()->name }}</td>
                                     <td>{{ $item->bulan }}</td>
-                                    <td>{{ $item->gaji_pkk }}</td>
-                                    <td>{{ $item->tunjangan_umum }}</td>
-                                    <td>{{ $item->tmb_tunjangan_umum }}</td>
-                                    <td>{{ $item->tunjangan_struk }}</td>
-                                    <td>{{ $item->tunjangan_fungsi }}</td>
-                                    <td>{{ $item->tunjangan_beras }}</td>
-                                    <td>{{ $item->tunjangan_pph }}</td>
-                                    <td>{{ $item->potongan_bpjs }}</td>
-                                    <td>{{ $item->potongan_pensiun }}</td>
-                                    <td>{{ $item->potongan_beras }}</td>
-                                    <td>{{ $item->potongan_cp }}</td>
-                                    <td>{{ $item->potongan_pph }}</td>
-                                    <td>{{ $item->potongan_ll }}</td>
-                                    <td>{{ $item->gaji_diterima }}</td>
+                                    <td>Rp.{{ number_format($item->gaji_pkk) }}</td>
+                                    <td>Rp.{{ number_format($item->tunjangan_istri) }}</td>
+                                    <td>Rp.{{ number_format($item->tunjangan_anak) }}</td>
+                                    <td>Rp.{{ number_format($item->tunjangan_umum) }}</td>
+                                    <td>Rp.{{ number_format($item->tmb_tunjangan_umum) }}</td>
+                                    <td>Rp.{{ number_format($item->tunjangan_struk) }}</td>
+                                    <td>Rp.{{ number_format($item->tunjangan_fungsi) }}</td>
+                                    <td>Rp.{{ number_format($item->tunjangan_beras) }}</td>
+                                    <td>Rp.{{ number_format($item->tunjangan_pph) }}</td>
+                                    <td>Rp.{{ number_format($item->potongan_bpjs) }}</td>
+                                    <td>Rp.{{ number_format($item->potongan_pensiun) }}</td>
+                                    <td>Rp.{{ number_format($item->potongan_beras) }}</td>
+                                    <td>Rp.{{ number_format($item->potongan_cp) }}</td>
+                                    <td>Rp.{{ number_format($item->potongan_pph) }}</td>
+                                    <td>Rp.{{ number_format($item->potongan_ll) }}</td>
+                                    <td>Rp.{{ number_format($item->gaji_diterima) }}</td>
                                 </tr>
 
                         </table>
 
-{{--
-
-                        <tr>
+                        {{-- <tr>
                             <td>Nama</td>
                             <td>:</td>
                             <td>{{ Auth::user()->name }}</td>
@@ -192,6 +199,7 @@
                         </div>
                         @endforeach
                     </div>
+                    {{ $daftar_gaji->links() }}
                 </div>
             </div>
         </div>

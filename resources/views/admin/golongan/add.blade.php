@@ -24,7 +24,7 @@
             <div class="col-md-12">
                 <div class="tile">
                     <div class="tile-body">
-                        <form class="form-horizontal" action="{{ url('/admin/golongan') }}" method="post"
+                        <form class="form-horizontal" method="post"
                             action="{{ route('admin/simpan_golongan') }}">
                             <div class="form-group row">
                                 @csrf

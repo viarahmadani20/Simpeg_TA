@@ -18,6 +18,8 @@ class CreateGaji extends Migration
             $table->foreignId('id_user')->nullable();
             $table->date('bulan');
             $table->string('gaji_pkk');
+            $table->string('tunjangan_istri');
+            $table->string('tunjangan_anak');
             $table->string('tunjangan_umum');
             $table->string('tmb_tunjangan_umum');
             $table->string('tunjangan_struk');

@@ -13,8 +13,15 @@
                 <!-- <p>Bootstrap Components</p> -->
             </div>
             <ul class="app-breadcrumb breadcrumb">
-                <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
-                <li class="breadcrumb-item"><a href="#">Laporan</a></li>
+                {{-- <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
+                <li class="breadcrumb-item"><a href="#">User</a></li> --}}
+                <li class="app-search">
+                    <form action="{{route('guru/laporan')}}">
+                        @csrf
+                <input class="app-search__input" name="cari" type="search" placeholder="Search">
+                <button class="app-search__button"><i class="fa fa-search">Cari</i></button>
+            </form>
+            </li>
             </ul>
         </div>
         <!-- Buttons-->
@@ -24,7 +31,7 @@
                     <div class="col-lg-12">
                         <!-- <h2 class="mb-3 line-head" id="buttons">Data Pegawai</h2> -->
                         <div class="form-group col-md 8">
-                            <a href="{{ route('guru/laporan/add') }}" class="btn btn-primary"><span class="fa fa-plus">
+                            <a href="{{ route('guru/laporan/add') }}" class="btn btn-primary" ><span class="fa fa-plus">
                                     Tambah Laporan</span></a>
                         </div>
                         <table class="table table-hover">
@@ -44,7 +51,7 @@
                                         style="width: 91.0625px;"> Status</th>
                                     <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1"
                                         colspan="1" aria-label="operasi: activate to sort column ascending"
-                                        style="width: 91.0625px;"></th>
+                                        style="width: 91.0625px;">Aksi</th>
                                 </tr>
                             </thead>
 
@@ -63,8 +70,15 @@
                                         </td>
                                         <td>{{$laporan->status}}</td>
                                         <td><a
-                                                href="{{ route('guru/editlaporan', $laporan->id_lap) }}"class="btn btn-info d-inline-block"><span
-                                                    class="fa fa-edit (alias)"> Edit</span></a>
+                                            @if ($laporan->status == 'BelumDiterima')
+                                            href="{{ route('guru/editlaporan', $laporan->id_lap) }}"class="btn btn-info d-inline-block"><span
+                                            class="fa fa-edit (alias)"> Edit</span></a>
+                                            @else
+                                            <p>Tidak Bisa Diedit</p>
+                                            @endif
+
+
+
 
                                         </td>
                                     </tr>
@@ -73,6 +87,7 @@
 
                         </table>
                     </div>
+                    {{$daftar_laporan->links()}}
                 </div>
             </div>
             <div class="row">

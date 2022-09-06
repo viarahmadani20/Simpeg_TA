@@ -12,6 +12,8 @@ class Gaji extends Model
     protected $fillable = [
         'bulan',
         'gaji_pkk',
+        'tunjangan_istri',
+        'tunjangan_anak',
         'tunjangan_umum',
         'tmb_tunjangan_umum',
         'tunjangan_struk',
@@ -34,4 +36,13 @@ class Gaji extends Model
             'id'
         );
     }
+
+    public function scopeWhereLike($query, $column, $value)
+{
+    return $query->where($column, 'like', '%'.$value.'%');
+}
+public function scopeOrWhereLike($query, $column, $value)
+{
+    return $query->orWhere($column, 'like', '%'.$value.'%');
+}
 }

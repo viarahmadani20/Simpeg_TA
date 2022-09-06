@@ -8,12 +8,20 @@ use App\Models\Keluarga;
 
 class KeluargaController extends Controller
 {
-    public function index(){
-        $daftar_keluarga = Keluarga::all();
-        return view ('admin.keluarga.tampil', compact(
-            [
+    public function index(Request $request){
+
+        $nama_keluarga = $request->cari;
+
+        if ($request->filled('cari')){
+            $daftar_keluarga=Keluarga::whereLike('nama_keluarga', $nama_keluarga)->paginate(3);
+        }
+
+        else {
+            $daftar_keluarga = Keluarga::paginate(3);
+        }
+        return view('admin.keluarga.tampil', compact(
                 'daftar_keluarga'
-            ]
+
         ));
     }
 

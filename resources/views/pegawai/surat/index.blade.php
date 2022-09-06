@@ -13,8 +13,15 @@
                 <!-- <p>Bootstrap Components</p> -->
             </div>
             <ul class="app-breadcrumb breadcrumb">
-                <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
-                <li class="breadcrumb-item"><a href="#">Surat Menyurat</a></li>
+                {{-- <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
+                <li class="breadcrumb-item"><a href="#">User</a></li> --}}
+                <li class="app-search">
+                    <form action="{{route('pegawai/surat')}}">
+                        @csrf
+                <input class="app-search__input" name="cari" type="search" placeholder="Search">
+                <button class="app-search__button"><i class="fa fa-search">Cari</i></button>
+            </form>
+            </li>
             </ul>
         </div>
         <!-- Buttons-->
@@ -36,7 +43,7 @@
                                     <th> Keterangan</th>
                                     <th> Status</th>
                                     <th> File Surat</th>
-                                    <th> </th>
+                                    <th>Aksi </th>
                                 </tr>
                             </thead>
                             @foreach ($daftar_surat as $no_surat => $surat)
@@ -53,10 +60,11 @@
                                                 (Belum Diverifikasi)
                                             @endif
 
-                                            {{-- <td><a href=""class="btn btn-info d-inline-block"><span class="fa fa-edit (alias)"> Edit</span></a>
-                                                {{-- {{-- <form action="{{route('pegawai/hapus', $laporan->id)}}" class="d-inline-block" ><button class="btn btn-danger" type="submit" ><span class="fa fa-trash"> Hapus</span></button>
-                                              </form> --}}
-                                            {{-- </td> --}}
+                                            <td><a @if ($surat->status == 'BelumVerifikasi') href="{{ route('pegawai/surat/edits', $surat->id_surat) }}"class="btn btn-info d-inline-block"><span
+                                                class="fa fa-edit (alias)"> Edit</span></a>
+                                                @else
+                                                <p>Tidak Bisa Diedit</p> @endif
+                                                    </td>
 
                                         </td>
                                     </tr>
@@ -64,6 +72,7 @@
                             @endforeach
                         </table>
                     </div>
+                    {{$daftar_surat->links()}}
                 </div>
             </div>
             <div class="row">

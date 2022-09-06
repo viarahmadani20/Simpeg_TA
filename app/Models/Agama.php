@@ -38,4 +38,13 @@ class Agama extends Model
             'id_agama'
         );
     }
+    public function scopeWhereLike($query, $column, $value)
+{
+    return $query->where($column, 'like', '%'.$value.'%');
+}
+public function scopeOrWhereLike($query, $column, $value)
+{
+    return $query->orWhere($column, 'like', '%'.$value.'%');
+}
+
 }

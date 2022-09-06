@@ -16,12 +16,20 @@ use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
-    public function index(){
-        $daftar_user = User::all();
+    public function index(Request $request){
+
+        $email = $request->cari;
+        $name= $request->cari;
+        if ($request->filled('cari')){
+            $daftar_user=User::whereLike('email', $email)->orWhereLike('name', $name)->paginate(5);
+        }
+
+        else {
+            $daftar_user = User::paginate(5);
+        }
         return view('admin.user.index', compact(
-            [
                 'daftar_user'
-            ]
+
         ));
     }
 

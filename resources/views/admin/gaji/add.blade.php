@@ -51,6 +51,18 @@
                                     </div>
                                 </div>
                                 <div class="form-group row">
+                                    <label class="control-label col-md-3">Tunjangan Istri</label>
+                                    <div class="col-md-8">
+                                        <input type="text" name="tunjangan_istri" class="form-controller">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="control-label col-md-3">Tunjangan Anak</label>
+                                    <div class="col-md-8">
+                                        <input type="text" name="tunjangan_anak" class="form-controller">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
                                     <label class="control-label col-md-3">Tunjangan Umum</label>
                                     <div class="col-md-8">
                                         <input type="text" name="tunjangan_umum" class="form-controller">

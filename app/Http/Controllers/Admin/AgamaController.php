@@ -8,12 +8,20 @@ use App\Models\Agama;
 
 class AgamaController extends Controller
 {
-    public function index () {
-        $daftar_agama = Agama::all();
-        return view ('admin.agama.tampil', compact (
-            [
+    public function index(Request $request){
+
+        $nama_agama = $request->cari;
+
+        if ($request->filled('cari')){
+            $daftar_agama=Agama::whereLike('nama_agama', $nama_agama)->paginate(3);
+        }
+
+        else {
+            $daftar_agama = Agama::paginate(3);
+        }
+        return view('admin.agama.tampil', compact(
                 'daftar_agama'
-            ]
+
         ));
     }
 

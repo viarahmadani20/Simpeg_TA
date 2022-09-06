@@ -13,9 +13,13 @@ active
           <!-- <p>Bootstrap Components</p> -->
         </div>
         <ul class="app-breadcrumb breadcrumb">
-          <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
-          <li class="breadcrumb-item"><a href="#">Gaji</a></li>
-        </ul>
+            <li class="app-search">
+                <form action="{{route('admin/gaji')}}">
+                    @csrf
+            <input class="app-search__input" name="cari" type="search" placeholder="Search">
+            <button class="app-search__button"><i class="fa fa-search">Cari</i></button>
+        </form>
+        </li>
       </div>
       <!-- Buttons-->
       <div class="tile mb-4">
@@ -26,17 +30,17 @@ active
               <div class="form-group col-md 8">
               <a href="{{route('admin/gaji/add')}}"
               class="btn btn-primary"><span class="fa fa-view"> Tambah Gaji</span></a>
-                <a href="{{route('admin/gaji/cetak')}}"
+                <a href="{{route('admin/gaji/cetakall')}}"
                 class="btn btn-primary" target="_blank"><span class="fa fa-view"> Cetak Gaji</span></a>
                 </div>
                 <table class="table table-hover">
                   <thead>
                     <tr>
-                        <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="No: activate to sort column ascending" style="width: 91.0625px;" >No</th>
-                        <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="id_user: activate to sort column ascending" style="width: 91.0625px;" >Nama</th>
-                        <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="bulan: activate to sort column ascending" style="width: 91.0625px;" >Bulan</th>
-                        <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="gaji_pkk: activate to sort column ascending" style="width: 91.0625px;" >Gaji</th>
-                        <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="operasi: activate to sort column ascending" style="width: 91.0625px;" >Operasi </th>
+                        <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="No: activate to sort column ascending"  >No</th>
+                        <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="id_user: activate to sort column ascending"  >Nama</th>
+                        <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="bulan: activate to sort column ascending"  >Bulan</th>
+                        <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="gaji_pkk: activate to sort column ascending"  >Gaji</th>
+                        <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="operasi: activate to sort column ascending"  >Operasi </th>
                     </tr>
                   </thead>
                   @foreach ( $daftar_gaji as $no_gaji =>$gaji )
@@ -47,7 +51,8 @@ active
                             {{$gaji->pengguna->email}}
                         </td>
                         <td>{{$gaji->bulan}}</td>
-                        <td><a href="{{route('admin/gaji/show', $gaji->id_gaji)}}">{{$gaji->gaji_diterima}}</a></td>
+                        <td><a href="{{route('admin/gaji/show', $gaji->id_gaji)}}">Rp.{{number_format($gaji->gaji_diterima)}}</a></td>
+                        <td><a href="{{route('admin/gaji/cetak', $gaji->id_gaji)}}" class="btn btn-info" target="_blank"><span class="fa fa-edit (alias)">Cetak</span></a></td>
                         <td><a href="{{route('admin/editg', $gaji->id_gaji)}}" class="btn btn-info"><span class="fa fa-edit (alias)">Edit</span></a></td>
                         <td> <button class="btn btn-danger" data-toggle="modal"
                             data-target="#konfirmasiHapus{{$gaji->id_gaji}}"><span class="fa fa-trash">
@@ -55,6 +60,8 @@ active
                             {{-- <form action="{{ route("admin/gaji/hapus", $gaji->id_gaji)}}" class="d-inline-block">
                             <button class="btn btn-danger" type="submit" ><span class="fa fa-trash"> Hapus</span></button> --}}
                         </td>
+
+
                     </tr>
                   </tbody>
                   <div class="modal" tabindex="-1" role="dialog" id="konfirmasiHapus{{$gaji->id_gaji}}">
@@ -81,6 +88,7 @@ active
                   @endforeach
                 </table>
             </div>
+            {{$daftar_gaji->links()}}
           </div>
         </div>
         <div class="row">

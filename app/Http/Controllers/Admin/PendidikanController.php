@@ -8,12 +8,20 @@ use App\Models\Pendidikan;
 
 class PendidikanController extends Controller
 {
-    public function index(){
-        $daftar_pendidikan = Pendidikan::all();
-        return view ('admin.pendidikan.tampil', compact(
-            [
+    public function index(Request $request){
+
+
+        $nama_pendidikan= $request->cari;
+        if ($request->filled('cari')){
+            $daftar_pendidikan=Pendidikan::whereLike('nama_pendidikan', $nama_pendidikan)->paginate(2);
+        }
+
+        else {
+            $daftar_pendidikan = Pendidikan::paginate(2);
+        }
+        return view('admin.pendidikan.tampil', compact(
                 'daftar_pendidikan'
-            ]
+
         ));
     }
 
